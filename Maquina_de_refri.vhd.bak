@@ -1,0 +1,75 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity Maquina_de_refri is 
+    port (
+        m, b1, b2, rst, clk: in std_logic; -- Moeda_Detectada, 
+        V, r1, r2: in std_logic_vector(7 downto 0);
+        P, E: out std_logic_vector(7 downto 0);
+        D: out std_logic_vector(1 downto 0)
+    );
+end Maquina_de_refri;
+
+architecture rtl of Maquina_de_refri is
+    component BO
+        port (
+            clk: in std_logic;
+            reset: in std_logic;
+            valor_Refrigerante: in std_logic_vector(7 downto 0);
+            custo: in std_logic_vector(7 downto 0);
+            habilitar_Alteracao: in std_logic;
+            reset_Acumulador: in std_logic;
+            comp_Maior: out std_logic;
+            comp_Menor: out std_logic;
+            comp_Igual: out std_logic;
+            total_Final: out std_logic_vector(7 downto 0);
+            mudanca_Final: out std_logic_vector(7 downto 0)
+        );
+    end component;
+
+    component BC
+        port (
+            clk: in std_logic;
+            moeda_Detectada: in std_logic;
+            valor_centavos: in std_logic_vector(7 downto 0);
+            preco_Refrigerante_0: in std_logic_vector(7 downto 0);
+            preco_Refrigerante_1: in std_logic_vector(7 downto 0);
+				botao_1: in std_logic; 
+            botao_2: in std_logic;
+            reset: in std_logic;
+            comp_maior_entrada: in std_logic;
+            comp_menor_entrada: in std_logic;
+            comp_igual_entrada: in std_logic;
+            refrigerante_Dispensado: out std_logic_vector(1 downto 0);
+            valor_Moeda: out std_logic_vector(7 downto 0);
+            preco: out std_logic_vector(7 downto 0);
+            habilitar_alteracao_reg: out std_logic;
+            registro_rst: out std_logic;
+            reset_sistema: out std_logic
+        );
+    end component;
+
+    signal maior, menor, igual, habilitar_Mudanca, habilitar_Total, registro_rst_flag, reset_sistema_flag: std_logic;
+    signal valorEntrada, preco_entrada: std_logic_vector(7 downto 0);
+    signal temp_mudanca, temp_total: std_logic_vector(7 downto 0);
+
+begin
+    if_reset: process (clk) 
+    begin
+        if rst = '0' then
+            E <= temp_total;
+            P <= "00000000";
+        else
+            E <= temp_mudanca;
+            P <= temp_total;
+        end if;
+    end process if_reset;
+
+    bc_process: BC 
+        port map (clk, m, V, r1, r2, b1,b2, rst, maior, menor, igual, D, valorEntrada, preco_entrada, habilitar_Mudanca, registro_rst_flag, reset_sistema_flag
+        );
+
+    BO_Process: BO 
+        port map (clk, reset_sistema_flag, valorEntrada, preco_entrada, habilitar_Mudanca, registro_rst_flag, maior, menor, igual, temp_total, temp_mudanca
+        );
+end rtl;

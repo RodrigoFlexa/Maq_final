@@ -1,0 +1,90 @@
+-- Subsistemas de Dados
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity BO is
+port (
+    -- Entradas de Dados
+    clk: in std_logic;
+    reset: in std_logic;
+
+    -- Sinais de Controle
+    valor_Refrigerante: in std_logic_vector(7 downto 0);
+    custo: in std_logic_vector(7 downto 0);
+
+    habilitar_Alteracao: in std_logic;
+    reset_Acumulador: in std_logic;
+
+    -- Condições de Saída
+    comp_Maior: out std_logic;
+    comp_Menor: out std_logic;
+    comp_Igual: out std_logic;
+
+    -- Saídas de Dados
+    total_Final: out std_logic_vector(7 downto 0);
+    mudanca_Final: out std_logic_vector(7 downto 0)
+);
+end BO;
+
+architecture rtl of BO is
+
+-- Declaração de Componentes
+
+component implementacao_somador_8_bits
+    port (
+        A, B: in std_logic_vector(7 downto 0); -- dois números a serem adicionados
+        Soma: out std_logic_vector(7 downto 0); -- saída da adição
+        Vai_um: out std_logic
+    );
+end component;
+
+component complemento_de_2
+    port (
+        Entrada: in std_logic_vector(7 downto 0);
+        Saida: out std_logic_vector(7 downto 0)
+    );
+end component;
+
+component comparador_8_bits
+    port (
+        entrada1, entrada2: in std_logic_vector(7 downto 0);
+        igualdade, maior, menor: out std_logic
+    ); -- portas de saída
+end component;
+
+component registrador_8_bits
+    port (
+        dados: in std_logic_vector(7 downto 0);
+        clk, reset_sincrono: in std_logic;
+        saida: out std_logic_vector(7 downto 0)
+    );
+end component;
+
+component acumulador_8_bits
+    port (
+        dados_entrada: in std_logic_vector(7 downto 0); -- dois números a serem adicionados
+        clk, rst: in std_logic; -- saída da adição
+        dados_saida: out std_logic_vector(7 downto 0)
+    ); -- portas de saída
+end component;
+
+-- Definições de Sinais;
+signal A, B, C: std_logic_vector(7 downto 0);
+signal C_out: std_logic;
+
+begin
+-- Lógica de Combinação;
+
+saida_Acumulador: acumulador_8_bits port map (valor_Refrigerante, clk, reset_Acumulador, C);
+registro_Total: registrador_8_bits port map (C, clk, reset_Acumulador, total_Final);
+
+valor_Complemento: complemento_de_2 port map (custo, A);
+saida_Soma: implementacao_somador_8_bits port map (C, A, B, C_out);
+registro_Mudanca: registrador_8_bits port map (B, clk, habilitar_Alteracao, mudanca_Final);
+
+comparando_Preco: comparador_8_bits port map (C, custo, comp_Igual, comp_Maior, comp_Menor);
+
+-- saída da entidade é a saída do registro
+-- Envia saídas para Condições, Saídas de Dados;
+end rtl;

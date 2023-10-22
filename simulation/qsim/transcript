@@ -1,0 +1,58 @@
+# do Maquina_de_refri.do 
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Maquina_de_refri
+# 
+# Top level modules:
+# 	Maquina_de_refri
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Maquina_de_refri_vlg_sample_tst
+# -- Compiling module Maquina_de_refri_vlg_check_tst
+# -- Compiling module Maquina_de_refri_vlg_vec_tst
+# 
+# Top level modules:
+# 	Maquina_de_refri_vlg_vec_tst
+# vsim -L cycloneiv_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate -c -t 1ps -novopt work.Maquina_de_refri_vlg_vec_tst 
+# Loading work.Maquina_de_refri_vlg_vec_tst
+# Loading work.Maquina_de_refri
+# Loading cycloneiv_ver.cycloneiv_lcell_comb
+# Loading cycloneiv_ver.cycloneiv_io_ibuf
+# Loading cycloneiv_ver.cycloneiv_io_obuf
+# Loading altera_ver.dffeas
+# Loading work.Maquina_de_refri_vlg_sample_tst
+# Loading work.Maquina_de_refri_vlg_check_tst
+# Loading altera_ver.PRIM_GDFF_LOW
+# ERROR! Vector Mismatch for output port tot[0] :: @time = 100000.000 ps
+#      Expected value = 00000000
+#      Real value = 00011001
+# ERROR! Vector Mismatch for output port tot[3] :: @time = 100000.000 ps
+#      Expected value = 00000000
+#      Real value = 00011001
+# ERROR! Vector Mismatch for output port tot[4] :: @time = 100000.000 ps
+#      Expected value = 00000000
+#      Real value = 00011001
+# ERROR! Vector Mismatch for output port tot[5] :: @time = 200000.000 ps
+#      Expected value = 00000000
+#      Real value = 01101001
+# ERROR! Vector Mismatch for output port tot[6] :: @time = 200000.000 ps
+#      Expected value = 00000000
+#      Real value = 01101001
+# ERROR! Vector Mismatch for output port vt[0] :: @time = 200000.000 ps
+#      Expected value = 00000000
+#      Real value = 00110111
+# ERROR! Vector Mismatch for output port vt[1] :: @time = 200000.000 ps
+#      Expected value = 00000000
+#      Real value = 00110111
+# ERROR! Vector Mismatch for output port vt[2] :: @time = 200000.000 ps
+#      Expected value = 00000000
+#      Real value = 00110111
+# ERROR! Vector Mismatch for output port vt[4] :: @time = 200000.000 ps
+#      Expected value = 00000000
+#      Real value = 00110111
+# ERROR! Vector Mismatch for output port vt[5] :: @time = 200000.000 ps
+#      Expected value = 00000000
+#      Real value = 00110111
+#          10 mismatched vectors : Simulation failed !
+# ** Note: $finish    : Maquina_de_refri.vt(498)
+#    Time: 1 us  Iteration: 0  Instance: /Maquina_de_refri_vlg_vec_tst/tb_out

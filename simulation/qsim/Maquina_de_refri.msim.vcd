@@ -1,0 +1,862 @@
+$comment
+	File created using the following command:
+		vcd file Maquina_de_refri.msim.vcd -direction
+$end
+$date
+	Sun Oct 22 01:10:38 2023
+$end
+$version
+	ModelSim Version 10.1d
+$end
+$timescale
+	1ps
+$end
+$scope module Maquina_de_refri_vlg_vec_tst $end
+$var reg 1 ! b1 $end
+$var reg 1 " b2 $end
+$var reg 1 # clk $end
+$var reg 1 $ m $end
+$var reg 8 % r1 [7:0] $end
+$var reg 8 & r2 [7:0] $end
+$var reg 1 ' rst $end
+$var reg 8 ( V [7:0] $end
+$var wire 1 ) f1 $end
+$var wire 1 * f2 $end
+$var wire 1 + K [1] $end
+$var wire 1 , K [0] $end
+$var wire 1 - tot [7] $end
+$var wire 1 . tot [6] $end
+$var wire 1 / tot [5] $end
+$var wire 1 0 tot [4] $end
+$var wire 1 1 tot [3] $end
+$var wire 1 2 tot [2] $end
+$var wire 1 3 tot [1] $end
+$var wire 1 4 tot [0] $end
+$var wire 1 5 vt [7] $end
+$var wire 1 6 vt [6] $end
+$var wire 1 7 vt [5] $end
+$var wire 1 8 vt [4] $end
+$var wire 1 9 vt [3] $end
+$var wire 1 : vt [2] $end
+$var wire 1 ; vt [1] $end
+$var wire 1 < vt [0] $end
+$var wire 1 = sampler $end
+$scope module i1 $end
+$var wire 1 > gnd $end
+$var wire 1 ? vcc $end
+$var wire 1 @ unknown $end
+$var tri1 1 A devclrn $end
+$var tri1 1 B devpor $end
+$var tri1 1 C devoe $end
+$var wire 1 D bc_process|valor_Moeda[0]~0_combout $end
+$var wire 1 E bc_process|valor_Moeda[1]~1_combout $end
+$var wire 1 F bc_process|valor_Moeda[2]~2_combout $end
+$var wire 1 G bc_process|valor_Moeda[3]~3_combout $end
+$var wire 1 H bc_process|valor_Moeda[4]~4_combout $end
+$var wire 1 I bc_process|valor_Moeda[5]~5_combout $end
+$var wire 1 J bc_process|valor_Moeda[6]~6_combout $end
+$var wire 1 K bc_process|valor_Moeda[7]~7_combout $end
+$var wire 1 L clk~input_o $end
+$var wire 1 M m~input_o $end
+$var wire 1 N V[0]~input_o $end
+$var wire 1 O V[1]~input_o $end
+$var wire 1 P V[2]~input_o $end
+$var wire 1 Q V[3]~input_o $end
+$var wire 1 R V[4]~input_o $end
+$var wire 1 S V[5]~input_o $end
+$var wire 1 T V[6]~input_o $end
+$var wire 1 U V[7]~input_o $end
+$var wire 1 V r2[0]~input_o $end
+$var wire 1 W r2[7]~input_o $end
+$var wire 1 X r2[6]~input_o $end
+$var wire 1 Y r2[5]~input_o $end
+$var wire 1 Z r2[4]~input_o $end
+$var wire 1 [ r2[3]~input_o $end
+$var wire 1 \ r2[2]~input_o $end
+$var wire 1 ] r2[1]~input_o $end
+$var wire 1 ^ tot[0]~output_o $end
+$var wire 1 _ tot[1]~output_o $end
+$var wire 1 ` tot[2]~output_o $end
+$var wire 1 a tot[3]~output_o $end
+$var wire 1 b tot[4]~output_o $end
+$var wire 1 c tot[5]~output_o $end
+$var wire 1 d tot[6]~output_o $end
+$var wire 1 e tot[7]~output_o $end
+$var wire 1 f vt[0]~output_o $end
+$var wire 1 g vt[1]~output_o $end
+$var wire 1 h vt[2]~output_o $end
+$var wire 1 i vt[3]~output_o $end
+$var wire 1 j vt[4]~output_o $end
+$var wire 1 k vt[5]~output_o $end
+$var wire 1 l vt[6]~output_o $end
+$var wire 1 m vt[7]~output_o $end
+$var wire 1 n K[0]~output_o $end
+$var wire 1 o K[1]~output_o $end
+$var wire 1 p f1~output_o $end
+$var wire 1 q f2~output_o $end
+$var wire 1 r rst~input_o $end
+$var wire 1 s BO_Process|saida_Acumulador|reg_output|saida[0]~8_combout $end
+$var wire 1 t bc_process|registro_rst~0_combout $end
+$var wire 1 u r1[7]~input_o $end
+$var wire 1 v b2~input_o $end
+$var wire 1 w bc_process|preco[7]~1_combout $end
+$var wire 1 x bc_process|refrigerante_Dispensado[1]~1_combout $end
+$var wire 1 y r1[6]~input_o $end
+$var wire 1 z bc_process|preco[6]~2_combout $end
+$var wire 1 { r1[5]~input_o $end
+$var wire 1 | bc_process|preco[5]~3_combout $end
+$var wire 1 } r1[4]~input_o $end
+$var wire 1 ~ bc_process|preco[4]~4_combout $end
+$var wire 1 !! r1[3]~input_o $end
+$var wire 1 "! bc_process|preco[3]~5_combout $end
+$var wire 1 #! r1[2]~input_o $end
+$var wire 1 $! bc_process|preco[2]~6_combout $end
+$var wire 1 %! r1[1]~input_o $end
+$var wire 1 &! bc_process|preco[1]~7_combout $end
+$var wire 1 '! r1[0]~input_o $end
+$var wire 1 (! bc_process|preco[0]~0_combout $end
+$var wire 1 )! BO_Process|comparando_Preco|LessThan1~1_cout $end
+$var wire 1 *! BO_Process|comparando_Preco|LessThan1~3_cout $end
+$var wire 1 +! BO_Process|comparando_Preco|LessThan1~5_cout $end
+$var wire 1 ,! BO_Process|comparando_Preco|LessThan1~7_cout $end
+$var wire 1 -! BO_Process|comparando_Preco|LessThan1~9_cout $end
+$var wire 1 .! BO_Process|comparando_Preco|LessThan1~11_cout $end
+$var wire 1 /! BO_Process|comparando_Preco|LessThan1~13_cout $end
+$var wire 1 0! BO_Process|comparando_Preco|LessThan1~14_combout $end
+$var wire 1 1! bc_process|habilitar_alteracao_reg~1_combout $end
+$var wire 1 2! bc_process|present_state~q $end
+$var wire 1 3! BO_Process|registro_Total|saida~0_combout $end
+$var wire 1 4! tot~0_combout $end
+$var wire 1 5! BO_Process|saida_Acumulador|reg_output|saida[0]~9 $end
+$var wire 1 6! BO_Process|saida_Acumulador|reg_output|saida[1]~10_combout $end
+$var wire 1 7! BO_Process|registro_Total|saida~1_combout $end
+$var wire 1 8! tot~1_combout $end
+$var wire 1 9! BO_Process|saida_Acumulador|reg_output|saida[1]~11 $end
+$var wire 1 :! BO_Process|saida_Acumulador|reg_output|saida[2]~12_combout $end
+$var wire 1 ;! BO_Process|registro_Total|saida~2_combout $end
+$var wire 1 <! tot~2_combout $end
+$var wire 1 =! BO_Process|saida_Acumulador|reg_output|saida[2]~13 $end
+$var wire 1 >! BO_Process|saida_Acumulador|reg_output|saida[3]~14_combout $end
+$var wire 1 ?! BO_Process|registro_Total|saida~3_combout $end
+$var wire 1 @! tot~3_combout $end
+$var wire 1 A! BO_Process|saida_Acumulador|reg_output|saida[3]~15 $end
+$var wire 1 B! BO_Process|saida_Acumulador|reg_output|saida[4]~16_combout $end
+$var wire 1 C! BO_Process|registro_Total|saida~4_combout $end
+$var wire 1 D! tot~4_combout $end
+$var wire 1 E! BO_Process|saida_Acumulador|reg_output|saida[4]~17 $end
+$var wire 1 F! BO_Process|saida_Acumulador|reg_output|saida[5]~18_combout $end
+$var wire 1 G! BO_Process|registro_Total|saida~5_combout $end
+$var wire 1 H! tot~5_combout $end
+$var wire 1 I! BO_Process|saida_Acumulador|reg_output|saida[5]~19 $end
+$var wire 1 J! BO_Process|saida_Acumulador|reg_output|saida[6]~20_combout $end
+$var wire 1 K! BO_Process|registro_Total|saida~6_combout $end
+$var wire 1 L! tot~6_combout $end
+$var wire 1 M! BO_Process|saida_Acumulador|reg_output|saida[6]~21 $end
+$var wire 1 N! BO_Process|saida_Acumulador|reg_output|saida[7]~22_combout $end
+$var wire 1 O! BO_Process|registro_Total|saida~7_combout $end
+$var wire 1 P! tot~7_combout $end
+$var wire 1 Q! BO_Process|registro_Mudanca|saida[0]~8_combout $end
+$var wire 1 R! BO_Process|comparando_Preco|LessThan0~1_cout $end
+$var wire 1 S! BO_Process|comparando_Preco|LessThan0~3_cout $end
+$var wire 1 T! BO_Process|comparando_Preco|LessThan0~5_cout $end
+$var wire 1 U! BO_Process|comparando_Preco|LessThan0~7_cout $end
+$var wire 1 V! BO_Process|comparando_Preco|LessThan0~9_cout $end
+$var wire 1 W! BO_Process|comparando_Preco|LessThan0~11_cout $end
+$var wire 1 X! BO_Process|comparando_Preco|LessThan0~13_cout $end
+$var wire 1 Y! BO_Process|comparando_Preco|LessThan0~14_combout $end
+$var wire 1 Z! bc_process|habilitar_alteracao_reg~0_combout $end
+$var wire 1 [! vt~0_combout $end
+$var wire 1 \! BO_Process|registro_Mudanca|saida[0]~9 $end
+$var wire 1 ]! BO_Process|registro_Mudanca|saida[1]~10_combout $end
+$var wire 1 ^! vt~1_combout $end
+$var wire 1 _! BO_Process|registro_Mudanca|saida[1]~11 $end
+$var wire 1 `! BO_Process|registro_Mudanca|saida[2]~12_combout $end
+$var wire 1 a! vt~2_combout $end
+$var wire 1 b! BO_Process|registro_Mudanca|saida[2]~13 $end
+$var wire 1 c! BO_Process|registro_Mudanca|saida[3]~14_combout $end
+$var wire 1 d! vt~3_combout $end
+$var wire 1 e! BO_Process|registro_Mudanca|saida[3]~15 $end
+$var wire 1 f! BO_Process|registro_Mudanca|saida[4]~16_combout $end
+$var wire 1 g! vt~4_combout $end
+$var wire 1 h! BO_Process|registro_Mudanca|saida[4]~17 $end
+$var wire 1 i! BO_Process|registro_Mudanca|saida[5]~18_combout $end
+$var wire 1 j! vt~5_combout $end
+$var wire 1 k! BO_Process|registro_Mudanca|saida[5]~19 $end
+$var wire 1 l! BO_Process|registro_Mudanca|saida[6]~20_combout $end
+$var wire 1 m! vt~6_combout $end
+$var wire 1 n! BO_Process|registro_Mudanca|saida[6]~21 $end
+$var wire 1 o! BO_Process|registro_Mudanca|saida[7]~22_combout $end
+$var wire 1 p! vt~7_combout $end
+$var wire 1 q! bc_process|f2~0_combout $end
+$var wire 1 r! b1~input_o $end
+$var wire 1 s! bc_process|comb~0_combout $end
+$var wire 1 t! bc_process|refrigerante_Dispensado[1]~0_combout $end
+$var wire 1 u! bc_process|comb~1_combout $end
+$var wire 1 v! bc_process|f1~0_combout $end
+$var wire 1 w! bc_process|preco [7] $end
+$var wire 1 x! bc_process|preco [6] $end
+$var wire 1 y! bc_process|preco [5] $end
+$var wire 1 z! bc_process|preco [4] $end
+$var wire 1 {! bc_process|preco [3] $end
+$var wire 1 |! bc_process|preco [2] $end
+$var wire 1 }! bc_process|preco [1] $end
+$var wire 1 ~! bc_process|preco [0] $end
+$var wire 1 !" BO_Process|saida_Acumulador|reg_output|saida [7] $end
+$var wire 1 "" BO_Process|saida_Acumulador|reg_output|saida [6] $end
+$var wire 1 #" BO_Process|saida_Acumulador|reg_output|saida [5] $end
+$var wire 1 $" BO_Process|saida_Acumulador|reg_output|saida [4] $end
+$var wire 1 %" BO_Process|saida_Acumulador|reg_output|saida [3] $end
+$var wire 1 &" BO_Process|saida_Acumulador|reg_output|saida [2] $end
+$var wire 1 '" BO_Process|saida_Acumulador|reg_output|saida [1] $end
+$var wire 1 (" BO_Process|saida_Acumulador|reg_output|saida [0] $end
+$var wire 1 )" BO_Process|registro_Mudanca|saida [7] $end
+$var wire 1 *" BO_Process|registro_Mudanca|saida [6] $end
+$var wire 1 +" BO_Process|registro_Mudanca|saida [5] $end
+$var wire 1 ," BO_Process|registro_Mudanca|saida [4] $end
+$var wire 1 -" BO_Process|registro_Mudanca|saida [3] $end
+$var wire 1 ." BO_Process|registro_Mudanca|saida [2] $end
+$var wire 1 /" BO_Process|registro_Mudanca|saida [1] $end
+$var wire 1 0" BO_Process|registro_Mudanca|saida [0] $end
+$var wire 1 1" BO_Process|registro_Total|saida [7] $end
+$var wire 1 2" BO_Process|registro_Total|saida [6] $end
+$var wire 1 3" BO_Process|registro_Total|saida [5] $end
+$var wire 1 4" BO_Process|registro_Total|saida [4] $end
+$var wire 1 5" BO_Process|registro_Total|saida [3] $end
+$var wire 1 6" BO_Process|registro_Total|saida [2] $end
+$var wire 1 7" BO_Process|registro_Total|saida [1] $end
+$var wire 1 8" BO_Process|registro_Total|saida [0] $end
+$var wire 1 9" bc_process|refrigerante_Dispensado [1] $end
+$var wire 1 :" bc_process|refrigerante_Dispensado [0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1!
+0"
+0#
+1$
+b110010 %
+b1100100 &
+1'
+b0 (
+0a
+0b
+0c
+0d
+0e
+0f
+0g
+0h
+0i
+0j
+0k
+0l
+0m
+0n
+0o
+0p
+0q
+1r
+0s
+0t
+0u
+0v
+0w
+1x
+0y
+0z
+1{
+1|
+1}
+1~
+0!!
+0"!
+0#!
+0$!
+1%!
+1&!
+0'!
+0(!
+0)!
+0*!
+1+!
+0,!
+1-!
+0.!
+1/!
+10!
+01!
+02!
+03!
+04!
+05!
+06!
+07!
+08!
+19!
+0:!
+0;!
+0<!
+0=!
+0>!
+0)
+0*
+0,
+0+
+04
+03
+02
+01
+00
+0/
+0.
+0-
+0<
+0;
+0:
+09
+08
+07
+06
+05
+x=
+0>
+1?
+x@
+1A
+1B
+1C
+0D
+0E
+0F
+0G
+0H
+0I
+0J
+0K
+0L
+1M
+0N
+0O
+0P
+0Q
+0R
+0S
+0T
+0U
+0V
+0W
+1X
+1Y
+0Z
+0[
+1\
+0]
+0^
+0_
+0`
+0?!
+0@!
+1A!
+0B!
+0C!
+0D!
+0E!
+0F!
+0G!
+0H!
+1I!
+0J!
+0K!
+0L!
+0M!
+0N!
+0O!
+0P!
+0Q!
+0R!
+1S!
+0T!
+1U!
+0V!
+1W!
+0X!
+0Y!
+1Z!
+0[!
+1\!
+1]!
+0^!
+1_!
+1`!
+0a!
+0b!
+1c!
+0d!
+1e!
+0f!
+0g!
+0h!
+0i!
+0j!
+1k!
+1l!
+0m!
+0n!
+1o!
+0p!
+0q!
+1r!
+0s!
+1t!
+1u!
+0v!
+0~!
+1}!
+0|!
+0{!
+1z!
+1y!
+0x!
+0w!
+0("
+0'"
+0&"
+0%"
+0$"
+0#"
+0""
+0!"
+00"
+0/"
+0."
+0-"
+0,"
+0+"
+0*"
+0)"
+08"
+07"
+06"
+05"
+04"
+03"
+02"
+01"
+0:"
+09"
+$end
+#10000
+b10000 (
+b11000 (
+b11001 (
+1N
+1Q
+1R
+0=
+1D
+1G
+1H
+1s
+1>!
+1B!
+#25000
+1#
+1L
+1=
+1$"
+1%"
+1("
+1f!
+1C!
+1E!
+0B!
+0e!
+0c!
+0U!
+1?!
+0A!
+0>!
+1,!
+1R!
+1Q!
+13!
+15!
+0s
+1F!
+1h!
+0f!
+1V!
+1B!
+0-!
+16!
+1i!
+#40000
+b1001 (
+b1 (
+b0 (
+0N
+0Q
+0R
+0=
+0D
+0G
+0H
+05!
+1s
+1A!
+1>!
+0B!
+06!
+0E!
+1B!
+0F!
+#50000
+0#
+0L
+1=
+#75000
+1#
+1L
+0=
+14"
+15"
+18"
+1D!
+1@!
+14!
+1b
+1a
+1^
+10
+11
+14
+#100000
+0#
+0L
+1=
+#120000
+b1000000 (
+b1010000 (
+1R
+1T
+0=
+1H
+1J
+1E!
+0B!
+1J!
+1F!
+#125000
+1#
+1L
+1=
+1""
+1#"
+0$"
+1n!
+0l!
+1X!
+1K!
+1M!
+0J!
+0/!
+0k!
+0i!
+0W!
+1G!
+0I!
+0F!
+1.!
+0h!
+1f!
+0V!
+0C!
+0E!
+1B!
+1-!
+0o!
+1Y!
+1N!
+00!
+1l!
+1J!
+1k!
+1i!
+1W!
+1I!
+1F!
+0.!
+0Z!
+11!
+0l!
+0J!
+#140000
+b10000 (
+b0 (
+0R
+0T
+0=
+0H
+0J
+0B!
+0M!
+1J!
+0N!
+#150000
+0#
+0L
+1=
+#175000
+1#
+1L
+0=
+1+"
+1,"
+1."
+1/"
+10"
+12"
+13"
+04"
+12!
+0u!
+1Z!
+0K!
+0G!
+0?!
+03!
+01!
+1t
+1j!
+1g!
+1a!
+1^!
+1[!
+1L!
+1H!
+0D!
+1v!
+1k
+1j
+1h
+1g
+1f
+1d
+1c
+0b
+1p
+17
+18
+1:
+1;
+1<
+1.
+1/
+00
+1)
+19"
+1o
+1+
+#200000
+0#
+0L
+1=
+#225000
+1#
+1L
+0=
+0+"
+0,"
+0."
+0/"
+00"
+02"
+0""
+03"
+0#"
+05"
+0%"
+08"
+02!
+0("
+0n!
+1l!
+0X!
+0J!
+1/!
+0i!
+0F!
+1e!
+1c!
+1U!
+0>!
+0,!
+1u!
+0Z!
+11!
+0t
+0R!
+0Q!
+0s
+0j!
+0g!
+0a!
+0^!
+0[!
+0L!
+0H!
+0@!
+04!
+0v!
+1o!
+0Y!
+10!
+0f!
+0k
+0j
+0h
+0g
+0f
+0d
+0c
+0a
+0^
+0p
+07
+08
+0:
+0;
+0<
+0.
+0/
+01
+04
+0)
+09"
+1Z!
+01!
+0o
+0+
+#250000
+0#
+0L
+1=
+#275000
+1#
+1L
+0=
+#300000
+0#
+0L
+1=
+#325000
+1#
+1L
+0=
+#350000
+0#
+0L
+1=
+#375000
+1#
+1L
+0=
+#400000
+0#
+0L
+1=
+#425000
+1#
+1L
+0=
+#450000
+0#
+0L
+1=
+#475000
+1#
+1L
+0=
+#500000
+0#
+0L
+1=
+#525000
+1#
+1L
+0=
+#550000
+0#
+0L
+1=
+#575000
+1#
+1L
+0=
+#600000
+0#
+0L
+1=
+#625000
+1#
+1L
+0=
+#650000
+0#
+0L
+1=
+#675000
+1#
+1L
+0=
+#700000
+0#
+0L
+1=
+#725000
+1#
+1L
+0=
+#750000
+0#
+0L
+1=
+#775000
+1#
+1L
+0=
+#800000
+0#
+0L
+1=
+#825000
+1#
+1L
+0=
+#850000
+0#
+0L
+1=
+#875000
+1#
+1L
+0=
+#900000
+0#
+0L
+1=
+#925000
+1#
+1L
+0=
+#950000
+0#
+0L
+1=
+#975000
+1#
+1L
+0=
+#1000000

@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Demop\OneDrive\Documentos\Maq_final\simulation\qsim
+vMaquina_de_refri
+Z1 !s100 PJS1Jk^Y3mT[PDAa9E^B21
+Z2 I;jHfni=E@WlW=QTG1LV[Y2
+Z3 Vge>JkNA5Ah5`RIPFV2BF42
+Z4 dC:\Users\Demop\OneDrive\Documentos\Maq_final\simulation\qsim
+Z5 w1697947837
+Z6 8Maquina_de_refri.vo
+Z7 FMaquina_de_refri.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|Maquina_de_refri.vo|
+Z10 o-work work -O0
+Z11 n@maquina_de_refri
+!i10b 1
+!s85 0
+Z12 !s108 1697947837.782000
+Z13 !s107 Maquina_de_refri.vo|
+!s101 -O0
+vMaquina_de_refri_vlg_check_tst
+!i10b 1
+!s100 zB[:iD3MZ]J6nM0FaRXfi3
+Ig[ebh7cjUD1ZfYl?3aNQg1
+Z14 VYD:9IbKLP]Ueo:XIkJc8l0
+R4
+Z15 w1697947836
+Z16 8Maquina_de_refri.vt
+Z17 FMaquina_de_refri.vt
+L0 71
+R8
+r1
+!s85 0
+31
+Z18 !s108 1697947837.828000
+Z19 !s107 Maquina_de_refri.vt|
+Z20 !s90 -work|work|Maquina_de_refri.vt|
+!s101 -O0
+R10
+Z21 n@maquina_de_refri_vlg_check_tst
+vMaquina_de_refri_vlg_sample_tst
+!i10b 1
+Z22 !s100 WZbXX4BZ:UT@_6Q<;5ZMU1
+Z23 I2>MoS<eBQd68HoKW`3n9U1
+Z24 V53G66Ij8FRjBP<?oX:YZm0
+R4
+R15
+R16
+R17
+L0 29
+R8
+r1
+!s85 0
+31
+R18
+R19
+R20
+!s101 -O0
+R10
+Z25 n@maquina_de_refri_vlg_sample_tst
+vMaquina_de_refri_vlg_vec_tst
+!i10b 1
+!s100 blYDKP7WU=EKG:kj7OfPD2
+I`A5Nb1d9`J?JnMLEX`1BF0
+Z26 VgR7?@T_AL7^C]k`KZSDOM2
+R4
+R15
+R16
+R17
+L0 502
+R8
+r1
+!s85 0
+31
+R18
+R19
+R20
+!s101 -O0
+R10
+Z27 n@maquina_de_refri_vlg_vec_tst

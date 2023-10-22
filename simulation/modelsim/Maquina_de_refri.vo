@@ -1,0 +1,2719 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus II 64-Bit"
+// VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
+
+// DATE "10/22/2023 01:10:37"
+
+// 
+// Device: Altera EP4CGX22CF19C6 Package FBGA324
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module Maquina_de_refri (
+	m,
+	b1,
+	b2,
+	rst,
+	clk,
+	V,
+	r1,
+	r2,
+	tot,
+	vt,
+	K,
+	f1,
+	f2);
+input 	m;
+input 	b1;
+input 	b2;
+input 	rst;
+input 	clk;
+input 	[7:0] V;
+input 	[7:0] r1;
+input 	[7:0] r2;
+output 	[7:0] tot;
+output 	[7:0] vt;
+output 	[1:0] K;
+output 	f1;
+output 	f2;
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \bc_process|valor_Moeda[0]~0_combout ;
+wire \bc_process|valor_Moeda[1]~1_combout ;
+wire \bc_process|valor_Moeda[2]~2_combout ;
+wire \bc_process|valor_Moeda[3]~3_combout ;
+wire \bc_process|valor_Moeda[4]~4_combout ;
+wire \bc_process|valor_Moeda[5]~5_combout ;
+wire \bc_process|valor_Moeda[6]~6_combout ;
+wire \bc_process|valor_Moeda[7]~7_combout ;
+wire \clk~input_o ;
+wire \m~input_o ;
+wire \V[0]~input_o ;
+wire \V[1]~input_o ;
+wire \V[2]~input_o ;
+wire \V[3]~input_o ;
+wire \V[4]~input_o ;
+wire \V[5]~input_o ;
+wire \V[6]~input_o ;
+wire \V[7]~input_o ;
+wire \r2[0]~input_o ;
+wire \r2[7]~input_o ;
+wire \r2[6]~input_o ;
+wire \r2[5]~input_o ;
+wire \r2[4]~input_o ;
+wire \r2[3]~input_o ;
+wire \r2[2]~input_o ;
+wire \r2[1]~input_o ;
+wire \tot[0]~output_o ;
+wire \tot[1]~output_o ;
+wire \tot[2]~output_o ;
+wire \tot[3]~output_o ;
+wire \tot[4]~output_o ;
+wire \tot[5]~output_o ;
+wire \tot[6]~output_o ;
+wire \tot[7]~output_o ;
+wire \vt[0]~output_o ;
+wire \vt[1]~output_o ;
+wire \vt[2]~output_o ;
+wire \vt[3]~output_o ;
+wire \vt[4]~output_o ;
+wire \vt[5]~output_o ;
+wire \vt[6]~output_o ;
+wire \vt[7]~output_o ;
+wire \K[0]~output_o ;
+wire \K[1]~output_o ;
+wire \f1~output_o ;
+wire \f2~output_o ;
+wire \rst~input_o ;
+wire \BO_Process|saida_Acumulador|reg_output|saida[0]~8_combout ;
+wire \bc_process|registro_rst~0_combout ;
+wire \r1[7]~input_o ;
+wire \b2~input_o ;
+wire \bc_process|preco[7]~1_combout ;
+wire \bc_process|refrigerante_Dispensado[1]~1_combout ;
+wire \r1[6]~input_o ;
+wire \bc_process|preco[6]~2_combout ;
+wire \r1[5]~input_o ;
+wire \bc_process|preco[5]~3_combout ;
+wire \r1[4]~input_o ;
+wire \bc_process|preco[4]~4_combout ;
+wire \r1[3]~input_o ;
+wire \bc_process|preco[3]~5_combout ;
+wire \r1[2]~input_o ;
+wire \bc_process|preco[2]~6_combout ;
+wire \r1[1]~input_o ;
+wire \bc_process|preco[1]~7_combout ;
+wire \r1[0]~input_o ;
+wire \bc_process|preco[0]~0_combout ;
+wire \BO_Process|comparando_Preco|LessThan1~1_cout ;
+wire \BO_Process|comparando_Preco|LessThan1~3_cout ;
+wire \BO_Process|comparando_Preco|LessThan1~5_cout ;
+wire \BO_Process|comparando_Preco|LessThan1~7_cout ;
+wire \BO_Process|comparando_Preco|LessThan1~9_cout ;
+wire \BO_Process|comparando_Preco|LessThan1~11_cout ;
+wire \BO_Process|comparando_Preco|LessThan1~13_cout ;
+wire \BO_Process|comparando_Preco|LessThan1~14_combout ;
+wire \bc_process|habilitar_alteracao_reg~1_combout ;
+wire \bc_process|present_state~q ;
+wire \BO_Process|registro_Total|saida~0_combout ;
+wire \tot~0_combout ;
+wire \BO_Process|saida_Acumulador|reg_output|saida[0]~9 ;
+wire \BO_Process|saida_Acumulador|reg_output|saida[1]~10_combout ;
+wire \BO_Process|registro_Total|saida~1_combout ;
+wire \tot~1_combout ;
+wire \BO_Process|saida_Acumulador|reg_output|saida[1]~11 ;
+wire \BO_Process|saida_Acumulador|reg_output|saida[2]~12_combout ;
+wire \BO_Process|registro_Total|saida~2_combout ;
+wire \tot~2_combout ;
+wire \BO_Process|saida_Acumulador|reg_output|saida[2]~13 ;
+wire \BO_Process|saida_Acumulador|reg_output|saida[3]~14_combout ;
+wire \BO_Process|registro_Total|saida~3_combout ;
+wire \tot~3_combout ;
+wire \BO_Process|saida_Acumulador|reg_output|saida[3]~15 ;
+wire \BO_Process|saida_Acumulador|reg_output|saida[4]~16_combout ;
+wire \BO_Process|registro_Total|saida~4_combout ;
+wire \tot~4_combout ;
+wire \BO_Process|saida_Acumulador|reg_output|saida[4]~17 ;
+wire \BO_Process|saida_Acumulador|reg_output|saida[5]~18_combout ;
+wire \BO_Process|registro_Total|saida~5_combout ;
+wire \tot~5_combout ;
+wire \BO_Process|saida_Acumulador|reg_output|saida[5]~19 ;
+wire \BO_Process|saida_Acumulador|reg_output|saida[6]~20_combout ;
+wire \BO_Process|registro_Total|saida~6_combout ;
+wire \tot~6_combout ;
+wire \BO_Process|saida_Acumulador|reg_output|saida[6]~21 ;
+wire \BO_Process|saida_Acumulador|reg_output|saida[7]~22_combout ;
+wire \BO_Process|registro_Total|saida~7_combout ;
+wire \tot~7_combout ;
+wire \BO_Process|registro_Mudanca|saida[0]~8_combout ;
+wire \BO_Process|comparando_Preco|LessThan0~1_cout ;
+wire \BO_Process|comparando_Preco|LessThan0~3_cout ;
+wire \BO_Process|comparando_Preco|LessThan0~5_cout ;
+wire \BO_Process|comparando_Preco|LessThan0~7_cout ;
+wire \BO_Process|comparando_Preco|LessThan0~9_cout ;
+wire \BO_Process|comparando_Preco|LessThan0~11_cout ;
+wire \BO_Process|comparando_Preco|LessThan0~13_cout ;
+wire \BO_Process|comparando_Preco|LessThan0~14_combout ;
+wire \bc_process|habilitar_alteracao_reg~0_combout ;
+wire \vt~0_combout ;
+wire \BO_Process|registro_Mudanca|saida[0]~9 ;
+wire \BO_Process|registro_Mudanca|saida[1]~10_combout ;
+wire \vt~1_combout ;
+wire \BO_Process|registro_Mudanca|saida[1]~11 ;
+wire \BO_Process|registro_Mudanca|saida[2]~12_combout ;
+wire \vt~2_combout ;
+wire \BO_Process|registro_Mudanca|saida[2]~13 ;
+wire \BO_Process|registro_Mudanca|saida[3]~14_combout ;
+wire \vt~3_combout ;
+wire \BO_Process|registro_Mudanca|saida[3]~15 ;
+wire \BO_Process|registro_Mudanca|saida[4]~16_combout ;
+wire \vt~4_combout ;
+wire \BO_Process|registro_Mudanca|saida[4]~17 ;
+wire \BO_Process|registro_Mudanca|saida[5]~18_combout ;
+wire \vt~5_combout ;
+wire \BO_Process|registro_Mudanca|saida[5]~19 ;
+wire \BO_Process|registro_Mudanca|saida[6]~20_combout ;
+wire \vt~6_combout ;
+wire \BO_Process|registro_Mudanca|saida[6]~21 ;
+wire \BO_Process|registro_Mudanca|saida[7]~22_combout ;
+wire \vt~7_combout ;
+wire \bc_process|f2~0_combout ;
+wire \b1~input_o ;
+wire \bc_process|comb~0_combout ;
+wire \bc_process|refrigerante_Dispensado[1]~0_combout ;
+wire \bc_process|comb~1_combout ;
+wire \bc_process|f1~0_combout ;
+wire [7:0] \bc_process|preco ;
+wire [7:0] \BO_Process|saida_Acumulador|reg_output|saida ;
+wire [7:0] \BO_Process|registro_Mudanca|saida ;
+wire [7:0] \BO_Process|registro_Total|saida ;
+wire [1:0] \bc_process|refrigerante_Dispensado ;
+
+
+cycloneiv_lcell_comb \bc_process|valor_Moeda[0]~0 (
+// Equation(s):
+// \bc_process|valor_Moeda[0]~0_combout  = (\m~input_o  & \V[0]~input_o )
+
+	.dataa(\m~input_o ),
+	.datab(\V[0]~input_o ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\bc_process|valor_Moeda[0]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|valor_Moeda[0]~0 .lut_mask = 16'h8888;
+defparam \bc_process|valor_Moeda[0]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|valor_Moeda[1]~1 (
+// Equation(s):
+// \bc_process|valor_Moeda[1]~1_combout  = (\m~input_o  & \V[1]~input_o )
+
+	.dataa(\m~input_o ),
+	.datab(\V[1]~input_o ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\bc_process|valor_Moeda[1]~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|valor_Moeda[1]~1 .lut_mask = 16'h8888;
+defparam \bc_process|valor_Moeda[1]~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|valor_Moeda[2]~2 (
+// Equation(s):
+// \bc_process|valor_Moeda[2]~2_combout  = (\m~input_o  & \V[2]~input_o )
+
+	.dataa(\m~input_o ),
+	.datab(\V[2]~input_o ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\bc_process|valor_Moeda[2]~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|valor_Moeda[2]~2 .lut_mask = 16'h8888;
+defparam \bc_process|valor_Moeda[2]~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|valor_Moeda[3]~3 (
+// Equation(s):
+// \bc_process|valor_Moeda[3]~3_combout  = (\m~input_o  & \V[3]~input_o )
+
+	.dataa(\m~input_o ),
+	.datab(\V[3]~input_o ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\bc_process|valor_Moeda[3]~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|valor_Moeda[3]~3 .lut_mask = 16'h8888;
+defparam \bc_process|valor_Moeda[3]~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|valor_Moeda[4]~4 (
+// Equation(s):
+// \bc_process|valor_Moeda[4]~4_combout  = (\m~input_o  & \V[4]~input_o )
+
+	.dataa(\m~input_o ),
+	.datab(\V[4]~input_o ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\bc_process|valor_Moeda[4]~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|valor_Moeda[4]~4 .lut_mask = 16'h8888;
+defparam \bc_process|valor_Moeda[4]~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|valor_Moeda[5]~5 (
+// Equation(s):
+// \bc_process|valor_Moeda[5]~5_combout  = (\m~input_o  & \V[5]~input_o )
+
+	.dataa(\m~input_o ),
+	.datab(\V[5]~input_o ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\bc_process|valor_Moeda[5]~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|valor_Moeda[5]~5 .lut_mask = 16'h8888;
+defparam \bc_process|valor_Moeda[5]~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|valor_Moeda[6]~6 (
+// Equation(s):
+// \bc_process|valor_Moeda[6]~6_combout  = (\m~input_o  & \V[6]~input_o )
+
+	.dataa(\m~input_o ),
+	.datab(\V[6]~input_o ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\bc_process|valor_Moeda[6]~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|valor_Moeda[6]~6 .lut_mask = 16'h8888;
+defparam \bc_process|valor_Moeda[6]~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|valor_Moeda[7]~7 (
+// Equation(s):
+// \bc_process|valor_Moeda[7]~7_combout  = (\m~input_o  & \V[7]~input_o )
+
+	.dataa(\m~input_o ),
+	.datab(\V[7]~input_o ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\bc_process|valor_Moeda[7]~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|valor_Moeda[7]~7 .lut_mask = 16'h8888;
+defparam \bc_process|valor_Moeda[7]~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \clk~input (
+	.i(clk),
+	.ibar(gnd),
+	.o(\clk~input_o ));
+// synopsys translate_off
+defparam \clk~input .bus_hold = "false";
+defparam \clk~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \m~input (
+	.i(m),
+	.ibar(gnd),
+	.o(\m~input_o ));
+// synopsys translate_off
+defparam \m~input .bus_hold = "false";
+defparam \m~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \V[0]~input (
+	.i(V[0]),
+	.ibar(gnd),
+	.o(\V[0]~input_o ));
+// synopsys translate_off
+defparam \V[0]~input .bus_hold = "false";
+defparam \V[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \V[1]~input (
+	.i(V[1]),
+	.ibar(gnd),
+	.o(\V[1]~input_o ));
+// synopsys translate_off
+defparam \V[1]~input .bus_hold = "false";
+defparam \V[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \V[2]~input (
+	.i(V[2]),
+	.ibar(gnd),
+	.o(\V[2]~input_o ));
+// synopsys translate_off
+defparam \V[2]~input .bus_hold = "false";
+defparam \V[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \V[3]~input (
+	.i(V[3]),
+	.ibar(gnd),
+	.o(\V[3]~input_o ));
+// synopsys translate_off
+defparam \V[3]~input .bus_hold = "false";
+defparam \V[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \V[4]~input (
+	.i(V[4]),
+	.ibar(gnd),
+	.o(\V[4]~input_o ));
+// synopsys translate_off
+defparam \V[4]~input .bus_hold = "false";
+defparam \V[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \V[5]~input (
+	.i(V[5]),
+	.ibar(gnd),
+	.o(\V[5]~input_o ));
+// synopsys translate_off
+defparam \V[5]~input .bus_hold = "false";
+defparam \V[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \V[6]~input (
+	.i(V[6]),
+	.ibar(gnd),
+	.o(\V[6]~input_o ));
+// synopsys translate_off
+defparam \V[6]~input .bus_hold = "false";
+defparam \V[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \V[7]~input (
+	.i(V[7]),
+	.ibar(gnd),
+	.o(\V[7]~input_o ));
+// synopsys translate_off
+defparam \V[7]~input .bus_hold = "false";
+defparam \V[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r2[0]~input (
+	.i(r2[0]),
+	.ibar(gnd),
+	.o(\r2[0]~input_o ));
+// synopsys translate_off
+defparam \r2[0]~input .bus_hold = "false";
+defparam \r2[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r2[7]~input (
+	.i(r2[7]),
+	.ibar(gnd),
+	.o(\r2[7]~input_o ));
+// synopsys translate_off
+defparam \r2[7]~input .bus_hold = "false";
+defparam \r2[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r2[6]~input (
+	.i(r2[6]),
+	.ibar(gnd),
+	.o(\r2[6]~input_o ));
+// synopsys translate_off
+defparam \r2[6]~input .bus_hold = "false";
+defparam \r2[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r2[5]~input (
+	.i(r2[5]),
+	.ibar(gnd),
+	.o(\r2[5]~input_o ));
+// synopsys translate_off
+defparam \r2[5]~input .bus_hold = "false";
+defparam \r2[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r2[4]~input (
+	.i(r2[4]),
+	.ibar(gnd),
+	.o(\r2[4]~input_o ));
+// synopsys translate_off
+defparam \r2[4]~input .bus_hold = "false";
+defparam \r2[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r2[3]~input (
+	.i(r2[3]),
+	.ibar(gnd),
+	.o(\r2[3]~input_o ));
+// synopsys translate_off
+defparam \r2[3]~input .bus_hold = "false";
+defparam \r2[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r2[2]~input (
+	.i(r2[2]),
+	.ibar(gnd),
+	.o(\r2[2]~input_o ));
+// synopsys translate_off
+defparam \r2[2]~input .bus_hold = "false";
+defparam \r2[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r2[1]~input (
+	.i(r2[1]),
+	.ibar(gnd),
+	.o(\r2[1]~input_o ));
+// synopsys translate_off
+defparam \r2[1]~input .bus_hold = "false";
+defparam \r2[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_obuf \tot[0]~output (
+	.i(\tot~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\tot[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \tot[0]~output .bus_hold = "false";
+defparam \tot[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \tot[1]~output (
+	.i(\tot~1_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\tot[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \tot[1]~output .bus_hold = "false";
+defparam \tot[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \tot[2]~output (
+	.i(\tot~2_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\tot[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \tot[2]~output .bus_hold = "false";
+defparam \tot[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \tot[3]~output (
+	.i(\tot~3_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\tot[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \tot[3]~output .bus_hold = "false";
+defparam \tot[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \tot[4]~output (
+	.i(\tot~4_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\tot[4]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \tot[4]~output .bus_hold = "false";
+defparam \tot[4]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \tot[5]~output (
+	.i(\tot~5_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\tot[5]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \tot[5]~output .bus_hold = "false";
+defparam \tot[5]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \tot[6]~output (
+	.i(\tot~6_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\tot[6]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \tot[6]~output .bus_hold = "false";
+defparam \tot[6]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \tot[7]~output (
+	.i(\tot~7_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\tot[7]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \tot[7]~output .bus_hold = "false";
+defparam \tot[7]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \vt[0]~output (
+	.i(\vt~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vt[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vt[0]~output .bus_hold = "false";
+defparam \vt[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \vt[1]~output (
+	.i(\vt~1_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vt[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vt[1]~output .bus_hold = "false";
+defparam \vt[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \vt[2]~output (
+	.i(\vt~2_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vt[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vt[2]~output .bus_hold = "false";
+defparam \vt[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \vt[3]~output (
+	.i(\vt~3_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vt[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vt[3]~output .bus_hold = "false";
+defparam \vt[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \vt[4]~output (
+	.i(\vt~4_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vt[4]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vt[4]~output .bus_hold = "false";
+defparam \vt[4]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \vt[5]~output (
+	.i(\vt~5_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vt[5]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vt[5]~output .bus_hold = "false";
+defparam \vt[5]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \vt[6]~output (
+	.i(\vt~6_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vt[6]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vt[6]~output .bus_hold = "false";
+defparam \vt[6]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \vt[7]~output (
+	.i(\vt~7_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\vt[7]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \vt[7]~output .bus_hold = "false";
+defparam \vt[7]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \K[0]~output (
+	.i(\bc_process|refrigerante_Dispensado [0]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\K[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \K[0]~output .bus_hold = "false";
+defparam \K[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \K[1]~output (
+	.i(\bc_process|refrigerante_Dispensado [1]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\K[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \K[1]~output .bus_hold = "false";
+defparam \K[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \f1~output (
+	.i(\bc_process|f1~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\f1~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \f1~output .bus_hold = "false";
+defparam \f1~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_obuf \f2~output (
+	.i(\bc_process|f2~0_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\f2~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \f2~output .bus_hold = "false";
+defparam \f2~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \rst~input (
+	.i(rst),
+	.ibar(gnd),
+	.o(\rst~input_o ));
+// synopsys translate_off
+defparam \rst~input .bus_hold = "false";
+defparam \rst~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|saida_Acumulador|reg_output|saida[0]~8 (
+// Equation(s):
+// \BO_Process|saida_Acumulador|reg_output|saida[0]~8_combout  = (\bc_process|valor_Moeda[0]~0_combout  & (\BO_Process|saida_Acumulador|reg_output|saida [0] $ (VCC))) # (!\bc_process|valor_Moeda[0]~0_combout  & (\BO_Process|saida_Acumulador|reg_output|saida 
+// [0] & VCC))
+// \BO_Process|saida_Acumulador|reg_output|saida[0]~9  = CARRY((\bc_process|valor_Moeda[0]~0_combout  & \BO_Process|saida_Acumulador|reg_output|saida [0]))
+
+	.dataa(\bc_process|valor_Moeda[0]~0_combout ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [0]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\BO_Process|saida_Acumulador|reg_output|saida[0]~8_combout ),
+	.cout(\BO_Process|saida_Acumulador|reg_output|saida[0]~9 ));
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[0]~8 .lut_mask = 16'h6688;
+defparam \BO_Process|saida_Acumulador|reg_output|saida[0]~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|registro_rst~0 (
+// Equation(s):
+// \bc_process|registro_rst~0_combout  = (\bc_process|present_state~q ) # (!\rst~input_o )
+
+	.dataa(\bc_process|present_state~q ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\rst~input_o ),
+	.cin(gnd),
+	.combout(\bc_process|registro_rst~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|registro_rst~0 .lut_mask = 16'hAAFF;
+defparam \bc_process|registro_rst~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \BO_Process|saida_Acumulador|reg_output|saida[0] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|saida_Acumulador|reg_output|saida[0]~8_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|registro_rst~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|saida_Acumulador|reg_output|saida [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[0] .is_wysiwyg = "true";
+defparam \BO_Process|saida_Acumulador|reg_output|saida[0] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r1[7]~input (
+	.i(r1[7]),
+	.ibar(gnd),
+	.o(\r1[7]~input_o ));
+// synopsys translate_off
+defparam \r1[7]~input .bus_hold = "false";
+defparam \r1[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \b2~input (
+	.i(b2),
+	.ibar(gnd),
+	.o(\b2~input_o ));
+// synopsys translate_off
+defparam \b2~input .bus_hold = "false";
+defparam \b2~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[7]~1 (
+// Equation(s):
+// \bc_process|preco[7]~1_combout  = (\b2~input_o  & (\r2[7]~input_o )) # (!\b2~input_o  & ((\r1[7]~input_o )))
+
+	.dataa(\r2[7]~input_o ),
+	.datab(\r1[7]~input_o ),
+	.datac(gnd),
+	.datad(\b2~input_o ),
+	.cin(gnd),
+	.combout(\bc_process|preco[7]~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[7]~1 .lut_mask = 16'hAACC;
+defparam \bc_process|preco[7]~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|refrigerante_Dispensado[1]~1 (
+// Equation(s):
+// \bc_process|refrigerante_Dispensado[1]~1_combout  = (\b1~input_o ) # (\b2~input_o )
+
+	.dataa(\b1~input_o ),
+	.datab(\b2~input_o ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\bc_process|refrigerante_Dispensado[1]~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|refrigerante_Dispensado[1]~1 .lut_mask = 16'hEEEE;
+defparam \bc_process|refrigerante_Dispensado[1]~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[7] (
+// Equation(s):
+// \bc_process|preco [7] = (\bc_process|refrigerante_Dispensado[1]~1_combout  & (\bc_process|preco[7]~1_combout )) # (!\bc_process|refrigerante_Dispensado[1]~1_combout  & ((\bc_process|preco [7])))
+
+	.dataa(gnd),
+	.datab(\bc_process|preco[7]~1_combout ),
+	.datac(\bc_process|preco [7]),
+	.datad(\bc_process|refrigerante_Dispensado[1]~1_combout ),
+	.cin(gnd),
+	.combout(\bc_process|preco [7]),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[7] .lut_mask = 16'hCCF0;
+defparam \bc_process|preco[7] .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r1[6]~input (
+	.i(r1[6]),
+	.ibar(gnd),
+	.o(\r1[6]~input_o ));
+// synopsys translate_off
+defparam \r1[6]~input .bus_hold = "false";
+defparam \r1[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[6]~2 (
+// Equation(s):
+// \bc_process|preco[6]~2_combout  = (\b2~input_o  & (\r2[6]~input_o )) # (!\b2~input_o  & ((\r1[6]~input_o )))
+
+	.dataa(\r2[6]~input_o ),
+	.datab(\r1[6]~input_o ),
+	.datac(gnd),
+	.datad(\b2~input_o ),
+	.cin(gnd),
+	.combout(\bc_process|preco[6]~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[6]~2 .lut_mask = 16'hAACC;
+defparam \bc_process|preco[6]~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[6] (
+// Equation(s):
+// \bc_process|preco [6] = (\bc_process|refrigerante_Dispensado[1]~1_combout  & (\bc_process|preco[6]~2_combout )) # (!\bc_process|refrigerante_Dispensado[1]~1_combout  & ((\bc_process|preco [6])))
+
+	.dataa(gnd),
+	.datab(\bc_process|preco[6]~2_combout ),
+	.datac(\bc_process|preco [6]),
+	.datad(\bc_process|refrigerante_Dispensado[1]~1_combout ),
+	.cin(gnd),
+	.combout(\bc_process|preco [6]),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[6] .lut_mask = 16'hCCF0;
+defparam \bc_process|preco[6] .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r1[5]~input (
+	.i(r1[5]),
+	.ibar(gnd),
+	.o(\r1[5]~input_o ));
+// synopsys translate_off
+defparam \r1[5]~input .bus_hold = "false";
+defparam \r1[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[5]~3 (
+// Equation(s):
+// \bc_process|preco[5]~3_combout  = (\b2~input_o  & (\r2[5]~input_o )) # (!\b2~input_o  & ((\r1[5]~input_o )))
+
+	.dataa(\r2[5]~input_o ),
+	.datab(\r1[5]~input_o ),
+	.datac(gnd),
+	.datad(\b2~input_o ),
+	.cin(gnd),
+	.combout(\bc_process|preco[5]~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[5]~3 .lut_mask = 16'hAACC;
+defparam \bc_process|preco[5]~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[5] (
+// Equation(s):
+// \bc_process|preco [5] = (\bc_process|refrigerante_Dispensado[1]~1_combout  & (\bc_process|preco[5]~3_combout )) # (!\bc_process|refrigerante_Dispensado[1]~1_combout  & ((\bc_process|preco [5])))
+
+	.dataa(gnd),
+	.datab(\bc_process|preco[5]~3_combout ),
+	.datac(\bc_process|preco [5]),
+	.datad(\bc_process|refrigerante_Dispensado[1]~1_combout ),
+	.cin(gnd),
+	.combout(\bc_process|preco [5]),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[5] .lut_mask = 16'hCCF0;
+defparam \bc_process|preco[5] .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r1[4]~input (
+	.i(r1[4]),
+	.ibar(gnd),
+	.o(\r1[4]~input_o ));
+// synopsys translate_off
+defparam \r1[4]~input .bus_hold = "false";
+defparam \r1[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[4]~4 (
+// Equation(s):
+// \bc_process|preco[4]~4_combout  = (\b2~input_o  & (\r2[4]~input_o )) # (!\b2~input_o  & ((\r1[4]~input_o )))
+
+	.dataa(\r2[4]~input_o ),
+	.datab(\r1[4]~input_o ),
+	.datac(gnd),
+	.datad(\b2~input_o ),
+	.cin(gnd),
+	.combout(\bc_process|preco[4]~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[4]~4 .lut_mask = 16'hAACC;
+defparam \bc_process|preco[4]~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[4] (
+// Equation(s):
+// \bc_process|preco [4] = (\bc_process|refrigerante_Dispensado[1]~1_combout  & (\bc_process|preco[4]~4_combout )) # (!\bc_process|refrigerante_Dispensado[1]~1_combout  & ((\bc_process|preco [4])))
+
+	.dataa(gnd),
+	.datab(\bc_process|preco[4]~4_combout ),
+	.datac(\bc_process|preco [4]),
+	.datad(\bc_process|refrigerante_Dispensado[1]~1_combout ),
+	.cin(gnd),
+	.combout(\bc_process|preco [4]),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[4] .lut_mask = 16'hCCF0;
+defparam \bc_process|preco[4] .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r1[3]~input (
+	.i(r1[3]),
+	.ibar(gnd),
+	.o(\r1[3]~input_o ));
+// synopsys translate_off
+defparam \r1[3]~input .bus_hold = "false";
+defparam \r1[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[3]~5 (
+// Equation(s):
+// \bc_process|preco[3]~5_combout  = (\b2~input_o  & (\r2[3]~input_o )) # (!\b2~input_o  & ((\r1[3]~input_o )))
+
+	.dataa(\r2[3]~input_o ),
+	.datab(\r1[3]~input_o ),
+	.datac(gnd),
+	.datad(\b2~input_o ),
+	.cin(gnd),
+	.combout(\bc_process|preco[3]~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[3]~5 .lut_mask = 16'hAACC;
+defparam \bc_process|preco[3]~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[3] (
+// Equation(s):
+// \bc_process|preco [3] = (\bc_process|refrigerante_Dispensado[1]~1_combout  & (\bc_process|preco[3]~5_combout )) # (!\bc_process|refrigerante_Dispensado[1]~1_combout  & ((\bc_process|preco [3])))
+
+	.dataa(gnd),
+	.datab(\bc_process|preco[3]~5_combout ),
+	.datac(\bc_process|preco [3]),
+	.datad(\bc_process|refrigerante_Dispensado[1]~1_combout ),
+	.cin(gnd),
+	.combout(\bc_process|preco [3]),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[3] .lut_mask = 16'hCCF0;
+defparam \bc_process|preco[3] .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r1[2]~input (
+	.i(r1[2]),
+	.ibar(gnd),
+	.o(\r1[2]~input_o ));
+// synopsys translate_off
+defparam \r1[2]~input .bus_hold = "false";
+defparam \r1[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[2]~6 (
+// Equation(s):
+// \bc_process|preco[2]~6_combout  = (\b2~input_o  & (\r2[2]~input_o )) # (!\b2~input_o  & ((\r1[2]~input_o )))
+
+	.dataa(\r2[2]~input_o ),
+	.datab(\r1[2]~input_o ),
+	.datac(gnd),
+	.datad(\b2~input_o ),
+	.cin(gnd),
+	.combout(\bc_process|preco[2]~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[2]~6 .lut_mask = 16'hAACC;
+defparam \bc_process|preco[2]~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[2] (
+// Equation(s):
+// \bc_process|preco [2] = (\bc_process|refrigerante_Dispensado[1]~1_combout  & (\bc_process|preco[2]~6_combout )) # (!\bc_process|refrigerante_Dispensado[1]~1_combout  & ((\bc_process|preco [2])))
+
+	.dataa(gnd),
+	.datab(\bc_process|preco[2]~6_combout ),
+	.datac(\bc_process|preco [2]),
+	.datad(\bc_process|refrigerante_Dispensado[1]~1_combout ),
+	.cin(gnd),
+	.combout(\bc_process|preco [2]),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[2] .lut_mask = 16'hCCF0;
+defparam \bc_process|preco[2] .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r1[1]~input (
+	.i(r1[1]),
+	.ibar(gnd),
+	.o(\r1[1]~input_o ));
+// synopsys translate_off
+defparam \r1[1]~input .bus_hold = "false";
+defparam \r1[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[1]~7 (
+// Equation(s):
+// \bc_process|preco[1]~7_combout  = (\b2~input_o  & (\r2[1]~input_o )) # (!\b2~input_o  & ((\r1[1]~input_o )))
+
+	.dataa(\r2[1]~input_o ),
+	.datab(\r1[1]~input_o ),
+	.datac(gnd),
+	.datad(\b2~input_o ),
+	.cin(gnd),
+	.combout(\bc_process|preco[1]~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[1]~7 .lut_mask = 16'hAACC;
+defparam \bc_process|preco[1]~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[1] (
+// Equation(s):
+// \bc_process|preco [1] = (\bc_process|refrigerante_Dispensado[1]~1_combout  & (\bc_process|preco[1]~7_combout )) # (!\bc_process|refrigerante_Dispensado[1]~1_combout  & ((\bc_process|preco [1])))
+
+	.dataa(gnd),
+	.datab(\bc_process|preco[1]~7_combout ),
+	.datac(\bc_process|preco [1]),
+	.datad(\bc_process|refrigerante_Dispensado[1]~1_combout ),
+	.cin(gnd),
+	.combout(\bc_process|preco [1]),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[1] .lut_mask = 16'hCCF0;
+defparam \bc_process|preco[1] .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \r1[0]~input (
+	.i(r1[0]),
+	.ibar(gnd),
+	.o(\r1[0]~input_o ));
+// synopsys translate_off
+defparam \r1[0]~input .bus_hold = "false";
+defparam \r1[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[0]~0 (
+// Equation(s):
+// \bc_process|preco[0]~0_combout  = (\b2~input_o  & (\r2[0]~input_o )) # (!\b2~input_o  & ((\r1[0]~input_o )))
+
+	.dataa(\r2[0]~input_o ),
+	.datab(\r1[0]~input_o ),
+	.datac(gnd),
+	.datad(\b2~input_o ),
+	.cin(gnd),
+	.combout(\bc_process|preco[0]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[0]~0 .lut_mask = 16'hAACC;
+defparam \bc_process|preco[0]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|preco[0] (
+// Equation(s):
+// \bc_process|preco [0] = (\bc_process|refrigerante_Dispensado[1]~1_combout  & (\bc_process|preco[0]~0_combout )) # (!\bc_process|refrigerante_Dispensado[1]~1_combout  & ((\bc_process|preco [0])))
+
+	.dataa(gnd),
+	.datab(\bc_process|preco[0]~0_combout ),
+	.datac(\bc_process|preco [0]),
+	.datad(\bc_process|refrigerante_Dispensado[1]~1_combout ),
+	.cin(gnd),
+	.combout(\bc_process|preco [0]),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|preco[0] .lut_mask = 16'hCCF0;
+defparam \bc_process|preco[0] .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan1~1 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan1~1_cout  = CARRY((!\BO_Process|saida_Acumulador|reg_output|saida [0] & \bc_process|preco [0]))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [0]),
+	.datab(\bc_process|preco [0]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(),
+	.cout(\BO_Process|comparando_Preco|LessThan1~1_cout ));
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan1~1 .lut_mask = 16'h0044;
+defparam \BO_Process|comparando_Preco|LessThan1~1 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan1~3 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan1~3_cout  = CARRY((\BO_Process|saida_Acumulador|reg_output|saida [1] & ((!\BO_Process|comparando_Preco|LessThan1~1_cout ) # (!\bc_process|preco [1]))) # (!\BO_Process|saida_Acumulador|reg_output|saida [1] & 
+// (!\bc_process|preco [1] & !\BO_Process|comparando_Preco|LessThan1~1_cout )))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [1]),
+	.datab(\bc_process|preco [1]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|comparando_Preco|LessThan1~1_cout ),
+	.combout(),
+	.cout(\BO_Process|comparando_Preco|LessThan1~3_cout ));
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan1~3 .lut_mask = 16'h002B;
+defparam \BO_Process|comparando_Preco|LessThan1~3 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan1~5 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan1~5_cout  = CARRY((\BO_Process|saida_Acumulador|reg_output|saida [2] & (\bc_process|preco [2] & !\BO_Process|comparando_Preco|LessThan1~3_cout )) # (!\BO_Process|saida_Acumulador|reg_output|saida [2] & 
+// ((\bc_process|preco [2]) # (!\BO_Process|comparando_Preco|LessThan1~3_cout ))))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [2]),
+	.datab(\bc_process|preco [2]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|comparando_Preco|LessThan1~3_cout ),
+	.combout(),
+	.cout(\BO_Process|comparando_Preco|LessThan1~5_cout ));
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan1~5 .lut_mask = 16'h004D;
+defparam \BO_Process|comparando_Preco|LessThan1~5 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan1~7 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan1~7_cout  = CARRY((\BO_Process|saida_Acumulador|reg_output|saida [3] & ((!\BO_Process|comparando_Preco|LessThan1~5_cout ) # (!\bc_process|preco [3]))) # (!\BO_Process|saida_Acumulador|reg_output|saida [3] & 
+// (!\bc_process|preco [3] & !\BO_Process|comparando_Preco|LessThan1~5_cout )))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [3]),
+	.datab(\bc_process|preco [3]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|comparando_Preco|LessThan1~5_cout ),
+	.combout(),
+	.cout(\BO_Process|comparando_Preco|LessThan1~7_cout ));
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan1~7 .lut_mask = 16'h002B;
+defparam \BO_Process|comparando_Preco|LessThan1~7 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan1~9 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan1~9_cout  = CARRY((\BO_Process|saida_Acumulador|reg_output|saida [4] & (\bc_process|preco [4] & !\BO_Process|comparando_Preco|LessThan1~7_cout )) # (!\BO_Process|saida_Acumulador|reg_output|saida [4] & 
+// ((\bc_process|preco [4]) # (!\BO_Process|comparando_Preco|LessThan1~7_cout ))))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [4]),
+	.datab(\bc_process|preco [4]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|comparando_Preco|LessThan1~7_cout ),
+	.combout(),
+	.cout(\BO_Process|comparando_Preco|LessThan1~9_cout ));
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan1~9 .lut_mask = 16'h004D;
+defparam \BO_Process|comparando_Preco|LessThan1~9 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan1~11 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan1~11_cout  = CARRY((\BO_Process|saida_Acumulador|reg_output|saida [5] & ((!\BO_Process|comparando_Preco|LessThan1~9_cout ) # (!\bc_process|preco [5]))) # (!\BO_Process|saida_Acumulador|reg_output|saida [5] & 
+// (!\bc_process|preco [5] & !\BO_Process|comparando_Preco|LessThan1~9_cout )))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [5]),
+	.datab(\bc_process|preco [5]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|comparando_Preco|LessThan1~9_cout ),
+	.combout(),
+	.cout(\BO_Process|comparando_Preco|LessThan1~11_cout ));
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan1~11 .lut_mask = 16'h002B;
+defparam \BO_Process|comparando_Preco|LessThan1~11 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan1~13 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan1~13_cout  = CARRY((\BO_Process|saida_Acumulador|reg_output|saida [6] & (\bc_process|preco [6] & !\BO_Process|comparando_Preco|LessThan1~11_cout )) # (!\BO_Process|saida_Acumulador|reg_output|saida [6] & 
+// ((\bc_process|preco [6]) # (!\BO_Process|comparando_Preco|LessThan1~11_cout ))))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [6]),
+	.datab(\bc_process|preco [6]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|comparando_Preco|LessThan1~11_cout ),
+	.combout(),
+	.cout(\BO_Process|comparando_Preco|LessThan1~13_cout ));
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan1~13 .lut_mask = 16'h004D;
+defparam \BO_Process|comparando_Preco|LessThan1~13 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan1~14 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan1~14_combout  = (\BO_Process|saida_Acumulador|reg_output|saida [7] & (\bc_process|preco [7] & \BO_Process|comparando_Preco|LessThan1~13_cout )) # (!\BO_Process|saida_Acumulador|reg_output|saida [7] & 
+// ((\bc_process|preco [7]) # (\BO_Process|comparando_Preco|LessThan1~13_cout )))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [7]),
+	.datab(\bc_process|preco [7]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(\BO_Process|comparando_Preco|LessThan1~13_cout ),
+	.combout(\BO_Process|comparando_Preco|LessThan1~14_combout ),
+	.cout());
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan1~14 .lut_mask = 16'hD4D4;
+defparam \BO_Process|comparando_Preco|LessThan1~14 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|habilitar_alteracao_reg~1 (
+// Equation(s):
+// \bc_process|habilitar_alteracao_reg~1_combout  = (!\bc_process|present_state~q  & !\BO_Process|comparando_Preco|LessThan1~14_combout )
+
+	.dataa(\bc_process|present_state~q ),
+	.datab(\BO_Process|comparando_Preco|LessThan1~14_combout ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\bc_process|habilitar_alteracao_reg~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|habilitar_alteracao_reg~1 .lut_mask = 16'h1111;
+defparam \bc_process|habilitar_alteracao_reg~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \bc_process|present_state (
+	.clk(\clk~input_o ),
+	.d(\bc_process|habilitar_alteracao_reg~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\bc_process|present_state~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \bc_process|present_state .is_wysiwyg = "true";
+defparam \bc_process|present_state .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Total|saida~0 (
+// Equation(s):
+// \BO_Process|registro_Total|saida~0_combout  = (\rst~input_o  & (\BO_Process|saida_Acumulador|reg_output|saida [0] & !\bc_process|present_state~q ))
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [0]),
+	.datac(gnd),
+	.datad(\bc_process|present_state~q ),
+	.cin(gnd),
+	.combout(\BO_Process|registro_Total|saida~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida~0 .lut_mask = 16'h0088;
+defparam \BO_Process|registro_Total|saida~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Total|saida[0] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Total|saida~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Total|saida [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida[0] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Total|saida[0] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \tot~0 (
+// Equation(s):
+// \tot~0_combout  = (\rst~input_o  & \BO_Process|registro_Total|saida [0])
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|registro_Total|saida [0]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\tot~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \tot~0 .lut_mask = 16'h8888;
+defparam \tot~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|saida_Acumulador|reg_output|saida[1]~10 (
+// Equation(s):
+// \BO_Process|saida_Acumulador|reg_output|saida[1]~10_combout  = (\bc_process|valor_Moeda[1]~1_combout  & ((\BO_Process|saida_Acumulador|reg_output|saida [1] & (\BO_Process|saida_Acumulador|reg_output|saida[0]~9  & VCC)) # 
+// (!\BO_Process|saida_Acumulador|reg_output|saida [1] & (!\BO_Process|saida_Acumulador|reg_output|saida[0]~9 )))) # (!\bc_process|valor_Moeda[1]~1_combout  & ((\BO_Process|saida_Acumulador|reg_output|saida [1] & 
+// (!\BO_Process|saida_Acumulador|reg_output|saida[0]~9 )) # (!\BO_Process|saida_Acumulador|reg_output|saida [1] & ((\BO_Process|saida_Acumulador|reg_output|saida[0]~9 ) # (GND)))))
+// \BO_Process|saida_Acumulador|reg_output|saida[1]~11  = CARRY((\bc_process|valor_Moeda[1]~1_combout  & (!\BO_Process|saida_Acumulador|reg_output|saida [1] & !\BO_Process|saida_Acumulador|reg_output|saida[0]~9 )) # (!\bc_process|valor_Moeda[1]~1_combout  & 
+// ((!\BO_Process|saida_Acumulador|reg_output|saida[0]~9 ) # (!\BO_Process|saida_Acumulador|reg_output|saida [1]))))
+
+	.dataa(\bc_process|valor_Moeda[1]~1_combout ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [1]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|saida_Acumulador|reg_output|saida[0]~9 ),
+	.combout(\BO_Process|saida_Acumulador|reg_output|saida[1]~10_combout ),
+	.cout(\BO_Process|saida_Acumulador|reg_output|saida[1]~11 ));
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[1]~10 .lut_mask = 16'h9617;
+defparam \BO_Process|saida_Acumulador|reg_output|saida[1]~10 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+dffeas \BO_Process|saida_Acumulador|reg_output|saida[1] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|saida_Acumulador|reg_output|saida[1]~10_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|registro_rst~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|saida_Acumulador|reg_output|saida [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[1] .is_wysiwyg = "true";
+defparam \BO_Process|saida_Acumulador|reg_output|saida[1] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Total|saida~1 (
+// Equation(s):
+// \BO_Process|registro_Total|saida~1_combout  = (\rst~input_o  & (\BO_Process|saida_Acumulador|reg_output|saida [1] & !\bc_process|present_state~q ))
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [1]),
+	.datac(gnd),
+	.datad(\bc_process|present_state~q ),
+	.cin(gnd),
+	.combout(\BO_Process|registro_Total|saida~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida~1 .lut_mask = 16'h0088;
+defparam \BO_Process|registro_Total|saida~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Total|saida[1] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Total|saida~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Total|saida [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida[1] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Total|saida[1] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \tot~1 (
+// Equation(s):
+// \tot~1_combout  = (\rst~input_o  & \BO_Process|registro_Total|saida [1])
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|registro_Total|saida [1]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\tot~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \tot~1 .lut_mask = 16'h8888;
+defparam \tot~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|saida_Acumulador|reg_output|saida[2]~12 (
+// Equation(s):
+// \BO_Process|saida_Acumulador|reg_output|saida[2]~12_combout  = ((\bc_process|valor_Moeda[2]~2_combout  $ (\BO_Process|saida_Acumulador|reg_output|saida [2] $ (!\BO_Process|saida_Acumulador|reg_output|saida[1]~11 )))) # (GND)
+// \BO_Process|saida_Acumulador|reg_output|saida[2]~13  = CARRY((\bc_process|valor_Moeda[2]~2_combout  & ((\BO_Process|saida_Acumulador|reg_output|saida [2]) # (!\BO_Process|saida_Acumulador|reg_output|saida[1]~11 ))) # (!\bc_process|valor_Moeda[2]~2_combout 
+//  & (\BO_Process|saida_Acumulador|reg_output|saida [2] & !\BO_Process|saida_Acumulador|reg_output|saida[1]~11 )))
+
+	.dataa(\bc_process|valor_Moeda[2]~2_combout ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [2]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|saida_Acumulador|reg_output|saida[1]~11 ),
+	.combout(\BO_Process|saida_Acumulador|reg_output|saida[2]~12_combout ),
+	.cout(\BO_Process|saida_Acumulador|reg_output|saida[2]~13 ));
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[2]~12 .lut_mask = 16'h698E;
+defparam \BO_Process|saida_Acumulador|reg_output|saida[2]~12 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+dffeas \BO_Process|saida_Acumulador|reg_output|saida[2] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|saida_Acumulador|reg_output|saida[2]~12_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|registro_rst~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|saida_Acumulador|reg_output|saida [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[2] .is_wysiwyg = "true";
+defparam \BO_Process|saida_Acumulador|reg_output|saida[2] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Total|saida~2 (
+// Equation(s):
+// \BO_Process|registro_Total|saida~2_combout  = (\rst~input_o  & (\BO_Process|saida_Acumulador|reg_output|saida [2] & !\bc_process|present_state~q ))
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [2]),
+	.datac(gnd),
+	.datad(\bc_process|present_state~q ),
+	.cin(gnd),
+	.combout(\BO_Process|registro_Total|saida~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida~2 .lut_mask = 16'h0088;
+defparam \BO_Process|registro_Total|saida~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Total|saida[2] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Total|saida~2_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Total|saida [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida[2] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Total|saida[2] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \tot~2 (
+// Equation(s):
+// \tot~2_combout  = (\rst~input_o  & \BO_Process|registro_Total|saida [2])
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|registro_Total|saida [2]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\tot~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \tot~2 .lut_mask = 16'h8888;
+defparam \tot~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|saida_Acumulador|reg_output|saida[3]~14 (
+// Equation(s):
+// \BO_Process|saida_Acumulador|reg_output|saida[3]~14_combout  = (\bc_process|valor_Moeda[3]~3_combout  & ((\BO_Process|saida_Acumulador|reg_output|saida [3] & (\BO_Process|saida_Acumulador|reg_output|saida[2]~13  & VCC)) # 
+// (!\BO_Process|saida_Acumulador|reg_output|saida [3] & (!\BO_Process|saida_Acumulador|reg_output|saida[2]~13 )))) # (!\bc_process|valor_Moeda[3]~3_combout  & ((\BO_Process|saida_Acumulador|reg_output|saida [3] & 
+// (!\BO_Process|saida_Acumulador|reg_output|saida[2]~13 )) # (!\BO_Process|saida_Acumulador|reg_output|saida [3] & ((\BO_Process|saida_Acumulador|reg_output|saida[2]~13 ) # (GND)))))
+// \BO_Process|saida_Acumulador|reg_output|saida[3]~15  = CARRY((\bc_process|valor_Moeda[3]~3_combout  & (!\BO_Process|saida_Acumulador|reg_output|saida [3] & !\BO_Process|saida_Acumulador|reg_output|saida[2]~13 )) # (!\bc_process|valor_Moeda[3]~3_combout  & 
+// ((!\BO_Process|saida_Acumulador|reg_output|saida[2]~13 ) # (!\BO_Process|saida_Acumulador|reg_output|saida [3]))))
+
+	.dataa(\bc_process|valor_Moeda[3]~3_combout ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [3]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|saida_Acumulador|reg_output|saida[2]~13 ),
+	.combout(\BO_Process|saida_Acumulador|reg_output|saida[3]~14_combout ),
+	.cout(\BO_Process|saida_Acumulador|reg_output|saida[3]~15 ));
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[3]~14 .lut_mask = 16'h9617;
+defparam \BO_Process|saida_Acumulador|reg_output|saida[3]~14 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+dffeas \BO_Process|saida_Acumulador|reg_output|saida[3] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|saida_Acumulador|reg_output|saida[3]~14_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|registro_rst~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|saida_Acumulador|reg_output|saida [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[3] .is_wysiwyg = "true";
+defparam \BO_Process|saida_Acumulador|reg_output|saida[3] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Total|saida~3 (
+// Equation(s):
+// \BO_Process|registro_Total|saida~3_combout  = (\rst~input_o  & (\BO_Process|saida_Acumulador|reg_output|saida [3] & !\bc_process|present_state~q ))
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [3]),
+	.datac(gnd),
+	.datad(\bc_process|present_state~q ),
+	.cin(gnd),
+	.combout(\BO_Process|registro_Total|saida~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida~3 .lut_mask = 16'h0088;
+defparam \BO_Process|registro_Total|saida~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Total|saida[3] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Total|saida~3_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Total|saida [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida[3] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Total|saida[3] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \tot~3 (
+// Equation(s):
+// \tot~3_combout  = (\rst~input_o  & \BO_Process|registro_Total|saida [3])
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|registro_Total|saida [3]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\tot~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \tot~3 .lut_mask = 16'h8888;
+defparam \tot~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|saida_Acumulador|reg_output|saida[4]~16 (
+// Equation(s):
+// \BO_Process|saida_Acumulador|reg_output|saida[4]~16_combout  = ((\bc_process|valor_Moeda[4]~4_combout  $ (\BO_Process|saida_Acumulador|reg_output|saida [4] $ (!\BO_Process|saida_Acumulador|reg_output|saida[3]~15 )))) # (GND)
+// \BO_Process|saida_Acumulador|reg_output|saida[4]~17  = CARRY((\bc_process|valor_Moeda[4]~4_combout  & ((\BO_Process|saida_Acumulador|reg_output|saida [4]) # (!\BO_Process|saida_Acumulador|reg_output|saida[3]~15 ))) # (!\bc_process|valor_Moeda[4]~4_combout 
+//  & (\BO_Process|saida_Acumulador|reg_output|saida [4] & !\BO_Process|saida_Acumulador|reg_output|saida[3]~15 )))
+
+	.dataa(\bc_process|valor_Moeda[4]~4_combout ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [4]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|saida_Acumulador|reg_output|saida[3]~15 ),
+	.combout(\BO_Process|saida_Acumulador|reg_output|saida[4]~16_combout ),
+	.cout(\BO_Process|saida_Acumulador|reg_output|saida[4]~17 ));
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[4]~16 .lut_mask = 16'h698E;
+defparam \BO_Process|saida_Acumulador|reg_output|saida[4]~16 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+dffeas \BO_Process|saida_Acumulador|reg_output|saida[4] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|saida_Acumulador|reg_output|saida[4]~16_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|registro_rst~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|saida_Acumulador|reg_output|saida [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[4] .is_wysiwyg = "true";
+defparam \BO_Process|saida_Acumulador|reg_output|saida[4] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Total|saida~4 (
+// Equation(s):
+// \BO_Process|registro_Total|saida~4_combout  = (\rst~input_o  & (\BO_Process|saida_Acumulador|reg_output|saida [4] & !\bc_process|present_state~q ))
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [4]),
+	.datac(gnd),
+	.datad(\bc_process|present_state~q ),
+	.cin(gnd),
+	.combout(\BO_Process|registro_Total|saida~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida~4 .lut_mask = 16'h0088;
+defparam \BO_Process|registro_Total|saida~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Total|saida[4] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Total|saida~4_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Total|saida [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida[4] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Total|saida[4] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \tot~4 (
+// Equation(s):
+// \tot~4_combout  = (\rst~input_o  & \BO_Process|registro_Total|saida [4])
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|registro_Total|saida [4]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\tot~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \tot~4 .lut_mask = 16'h8888;
+defparam \tot~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|saida_Acumulador|reg_output|saida[5]~18 (
+// Equation(s):
+// \BO_Process|saida_Acumulador|reg_output|saida[5]~18_combout  = (\bc_process|valor_Moeda[5]~5_combout  & ((\BO_Process|saida_Acumulador|reg_output|saida [5] & (\BO_Process|saida_Acumulador|reg_output|saida[4]~17  & VCC)) # 
+// (!\BO_Process|saida_Acumulador|reg_output|saida [5] & (!\BO_Process|saida_Acumulador|reg_output|saida[4]~17 )))) # (!\bc_process|valor_Moeda[5]~5_combout  & ((\BO_Process|saida_Acumulador|reg_output|saida [5] & 
+// (!\BO_Process|saida_Acumulador|reg_output|saida[4]~17 )) # (!\BO_Process|saida_Acumulador|reg_output|saida [5] & ((\BO_Process|saida_Acumulador|reg_output|saida[4]~17 ) # (GND)))))
+// \BO_Process|saida_Acumulador|reg_output|saida[5]~19  = CARRY((\bc_process|valor_Moeda[5]~5_combout  & (!\BO_Process|saida_Acumulador|reg_output|saida [5] & !\BO_Process|saida_Acumulador|reg_output|saida[4]~17 )) # (!\bc_process|valor_Moeda[5]~5_combout  & 
+// ((!\BO_Process|saida_Acumulador|reg_output|saida[4]~17 ) # (!\BO_Process|saida_Acumulador|reg_output|saida [5]))))
+
+	.dataa(\bc_process|valor_Moeda[5]~5_combout ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [5]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|saida_Acumulador|reg_output|saida[4]~17 ),
+	.combout(\BO_Process|saida_Acumulador|reg_output|saida[5]~18_combout ),
+	.cout(\BO_Process|saida_Acumulador|reg_output|saida[5]~19 ));
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[5]~18 .lut_mask = 16'h9617;
+defparam \BO_Process|saida_Acumulador|reg_output|saida[5]~18 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+dffeas \BO_Process|saida_Acumulador|reg_output|saida[5] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|saida_Acumulador|reg_output|saida[5]~18_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|registro_rst~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|saida_Acumulador|reg_output|saida [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[5] .is_wysiwyg = "true";
+defparam \BO_Process|saida_Acumulador|reg_output|saida[5] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Total|saida~5 (
+// Equation(s):
+// \BO_Process|registro_Total|saida~5_combout  = (\rst~input_o  & (\BO_Process|saida_Acumulador|reg_output|saida [5] & !\bc_process|present_state~q ))
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [5]),
+	.datac(gnd),
+	.datad(\bc_process|present_state~q ),
+	.cin(gnd),
+	.combout(\BO_Process|registro_Total|saida~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida~5 .lut_mask = 16'h0088;
+defparam \BO_Process|registro_Total|saida~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Total|saida[5] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Total|saida~5_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Total|saida [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida[5] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Total|saida[5] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \tot~5 (
+// Equation(s):
+// \tot~5_combout  = (\rst~input_o  & \BO_Process|registro_Total|saida [5])
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|registro_Total|saida [5]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\tot~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \tot~5 .lut_mask = 16'h8888;
+defparam \tot~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|saida_Acumulador|reg_output|saida[6]~20 (
+// Equation(s):
+// \BO_Process|saida_Acumulador|reg_output|saida[6]~20_combout  = ((\bc_process|valor_Moeda[6]~6_combout  $ (\BO_Process|saida_Acumulador|reg_output|saida [6] $ (!\BO_Process|saida_Acumulador|reg_output|saida[5]~19 )))) # (GND)
+// \BO_Process|saida_Acumulador|reg_output|saida[6]~21  = CARRY((\bc_process|valor_Moeda[6]~6_combout  & ((\BO_Process|saida_Acumulador|reg_output|saida [6]) # (!\BO_Process|saida_Acumulador|reg_output|saida[5]~19 ))) # (!\bc_process|valor_Moeda[6]~6_combout 
+//  & (\BO_Process|saida_Acumulador|reg_output|saida [6] & !\BO_Process|saida_Acumulador|reg_output|saida[5]~19 )))
+
+	.dataa(\bc_process|valor_Moeda[6]~6_combout ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [6]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|saida_Acumulador|reg_output|saida[5]~19 ),
+	.combout(\BO_Process|saida_Acumulador|reg_output|saida[6]~20_combout ),
+	.cout(\BO_Process|saida_Acumulador|reg_output|saida[6]~21 ));
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[6]~20 .lut_mask = 16'h698E;
+defparam \BO_Process|saida_Acumulador|reg_output|saida[6]~20 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+dffeas \BO_Process|saida_Acumulador|reg_output|saida[6] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|saida_Acumulador|reg_output|saida[6]~20_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|registro_rst~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|saida_Acumulador|reg_output|saida [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[6] .is_wysiwyg = "true";
+defparam \BO_Process|saida_Acumulador|reg_output|saida[6] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Total|saida~6 (
+// Equation(s):
+// \BO_Process|registro_Total|saida~6_combout  = (\rst~input_o  & (\BO_Process|saida_Acumulador|reg_output|saida [6] & !\bc_process|present_state~q ))
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [6]),
+	.datac(gnd),
+	.datad(\bc_process|present_state~q ),
+	.cin(gnd),
+	.combout(\BO_Process|registro_Total|saida~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida~6 .lut_mask = 16'h0088;
+defparam \BO_Process|registro_Total|saida~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Total|saida[6] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Total|saida~6_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Total|saida [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida[6] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Total|saida[6] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \tot~6 (
+// Equation(s):
+// \tot~6_combout  = (\rst~input_o  & \BO_Process|registro_Total|saida [6])
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|registro_Total|saida [6]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\tot~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \tot~6 .lut_mask = 16'h8888;
+defparam \tot~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|saida_Acumulador|reg_output|saida[7]~22 (
+// Equation(s):
+// \BO_Process|saida_Acumulador|reg_output|saida[7]~22_combout  = \bc_process|valor_Moeda[7]~7_combout  $ (\BO_Process|saida_Acumulador|reg_output|saida [7] $ (\BO_Process|saida_Acumulador|reg_output|saida[6]~21 ))
+
+	.dataa(\bc_process|valor_Moeda[7]~7_combout ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [7]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(\BO_Process|saida_Acumulador|reg_output|saida[6]~21 ),
+	.combout(\BO_Process|saida_Acumulador|reg_output|saida[7]~22_combout ),
+	.cout());
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[7]~22 .lut_mask = 16'h9696;
+defparam \BO_Process|saida_Acumulador|reg_output|saida[7]~22 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+dffeas \BO_Process|saida_Acumulador|reg_output|saida[7] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|saida_Acumulador|reg_output|saida[7]~22_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|registro_rst~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|saida_Acumulador|reg_output|saida [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|saida_Acumulador|reg_output|saida[7] .is_wysiwyg = "true";
+defparam \BO_Process|saida_Acumulador|reg_output|saida[7] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Total|saida~7 (
+// Equation(s):
+// \BO_Process|registro_Total|saida~7_combout  = (\rst~input_o  & (\BO_Process|saida_Acumulador|reg_output|saida [7] & !\bc_process|present_state~q ))
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [7]),
+	.datac(gnd),
+	.datad(\bc_process|present_state~q ),
+	.cin(gnd),
+	.combout(\BO_Process|registro_Total|saida~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida~7 .lut_mask = 16'h0088;
+defparam \BO_Process|registro_Total|saida~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Total|saida[7] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Total|saida~7_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Total|saida [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Total|saida[7] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Total|saida[7] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \tot~7 (
+// Equation(s):
+// \tot~7_combout  = (\rst~input_o  & \BO_Process|registro_Total|saida [7])
+
+	.dataa(\rst~input_o ),
+	.datab(\BO_Process|registro_Total|saida [7]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\tot~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \tot~7 .lut_mask = 16'h8888;
+defparam \tot~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Mudanca|saida[0]~8 (
+// Equation(s):
+// \BO_Process|registro_Mudanca|saida[0]~8_combout  = (\BO_Process|saida_Acumulador|reg_output|saida [0] & ((GND) # (!\bc_process|preco [0]))) # (!\BO_Process|saida_Acumulador|reg_output|saida [0] & (\bc_process|preco [0] $ (GND)))
+// \BO_Process|registro_Mudanca|saida[0]~9  = CARRY((\BO_Process|saida_Acumulador|reg_output|saida [0]) # (!\bc_process|preco [0]))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [0]),
+	.datab(\bc_process|preco [0]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\BO_Process|registro_Mudanca|saida[0]~8_combout ),
+	.cout(\BO_Process|registro_Mudanca|saida[0]~9 ));
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[0]~8 .lut_mask = 16'h66BB;
+defparam \BO_Process|registro_Mudanca|saida[0]~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan0~1 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan0~1_cout  = CARRY((!\bc_process|preco [0] & \BO_Process|saida_Acumulador|reg_output|saida [0]))
+
+	.dataa(\bc_process|preco [0]),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [0]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(),
+	.cout(\BO_Process|comparando_Preco|LessThan0~1_cout ));
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan0~1 .lut_mask = 16'h0044;
+defparam \BO_Process|comparando_Preco|LessThan0~1 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan0~3 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan0~3_cout  = CARRY((\bc_process|preco [1] & ((!\BO_Process|comparando_Preco|LessThan0~1_cout ) # (!\BO_Process|saida_Acumulador|reg_output|saida [1]))) # (!\bc_process|preco [1] & 
+// (!\BO_Process|saida_Acumulador|reg_output|saida [1] & !\BO_Process|comparando_Preco|LessThan0~1_cout )))
+
+	.dataa(\bc_process|preco [1]),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [1]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|comparando_Preco|LessThan0~1_cout ),
+	.combout(),
+	.cout(\BO_Process|comparando_Preco|LessThan0~3_cout ));
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan0~3 .lut_mask = 16'h002B;
+defparam \BO_Process|comparando_Preco|LessThan0~3 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan0~5 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan0~5_cout  = CARRY((\bc_process|preco [2] & (\BO_Process|saida_Acumulador|reg_output|saida [2] & !\BO_Process|comparando_Preco|LessThan0~3_cout )) # (!\bc_process|preco [2] & 
+// ((\BO_Process|saida_Acumulador|reg_output|saida [2]) # (!\BO_Process|comparando_Preco|LessThan0~3_cout ))))
+
+	.dataa(\bc_process|preco [2]),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [2]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|comparando_Preco|LessThan0~3_cout ),
+	.combout(),
+	.cout(\BO_Process|comparando_Preco|LessThan0~5_cout ));
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan0~5 .lut_mask = 16'h004D;
+defparam \BO_Process|comparando_Preco|LessThan0~5 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan0~7 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan0~7_cout  = CARRY((\bc_process|preco [3] & ((!\BO_Process|comparando_Preco|LessThan0~5_cout ) # (!\BO_Process|saida_Acumulador|reg_output|saida [3]))) # (!\bc_process|preco [3] & 
+// (!\BO_Process|saida_Acumulador|reg_output|saida [3] & !\BO_Process|comparando_Preco|LessThan0~5_cout )))
+
+	.dataa(\bc_process|preco [3]),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [3]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|comparando_Preco|LessThan0~5_cout ),
+	.combout(),
+	.cout(\BO_Process|comparando_Preco|LessThan0~7_cout ));
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan0~7 .lut_mask = 16'h002B;
+defparam \BO_Process|comparando_Preco|LessThan0~7 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan0~9 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan0~9_cout  = CARRY((\bc_process|preco [4] & (\BO_Process|saida_Acumulador|reg_output|saida [4] & !\BO_Process|comparando_Preco|LessThan0~7_cout )) # (!\bc_process|preco [4] & 
+// ((\BO_Process|saida_Acumulador|reg_output|saida [4]) # (!\BO_Process|comparando_Preco|LessThan0~7_cout ))))
+
+	.dataa(\bc_process|preco [4]),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [4]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|comparando_Preco|LessThan0~7_cout ),
+	.combout(),
+	.cout(\BO_Process|comparando_Preco|LessThan0~9_cout ));
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan0~9 .lut_mask = 16'h004D;
+defparam \BO_Process|comparando_Preco|LessThan0~9 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan0~11 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan0~11_cout  = CARRY((\bc_process|preco [5] & ((!\BO_Process|comparando_Preco|LessThan0~9_cout ) # (!\BO_Process|saida_Acumulador|reg_output|saida [5]))) # (!\bc_process|preco [5] & 
+// (!\BO_Process|saida_Acumulador|reg_output|saida [5] & !\BO_Process|comparando_Preco|LessThan0~9_cout )))
+
+	.dataa(\bc_process|preco [5]),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [5]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|comparando_Preco|LessThan0~9_cout ),
+	.combout(),
+	.cout(\BO_Process|comparando_Preco|LessThan0~11_cout ));
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan0~11 .lut_mask = 16'h002B;
+defparam \BO_Process|comparando_Preco|LessThan0~11 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan0~13 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan0~13_cout  = CARRY((\bc_process|preco [6] & (\BO_Process|saida_Acumulador|reg_output|saida [6] & !\BO_Process|comparando_Preco|LessThan0~11_cout )) # (!\bc_process|preco [6] & 
+// ((\BO_Process|saida_Acumulador|reg_output|saida [6]) # (!\BO_Process|comparando_Preco|LessThan0~11_cout ))))
+
+	.dataa(\bc_process|preco [6]),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [6]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|comparando_Preco|LessThan0~11_cout ),
+	.combout(),
+	.cout(\BO_Process|comparando_Preco|LessThan0~13_cout ));
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan0~13 .lut_mask = 16'h004D;
+defparam \BO_Process|comparando_Preco|LessThan0~13 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|comparando_Preco|LessThan0~14 (
+// Equation(s):
+// \BO_Process|comparando_Preco|LessThan0~14_combout  = (\bc_process|preco [7] & (\BO_Process|saida_Acumulador|reg_output|saida [7] & \BO_Process|comparando_Preco|LessThan0~13_cout )) # (!\bc_process|preco [7] & 
+// ((\BO_Process|saida_Acumulador|reg_output|saida [7]) # (\BO_Process|comparando_Preco|LessThan0~13_cout )))
+
+	.dataa(\bc_process|preco [7]),
+	.datab(\BO_Process|saida_Acumulador|reg_output|saida [7]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(\BO_Process|comparando_Preco|LessThan0~13_cout ),
+	.combout(\BO_Process|comparando_Preco|LessThan0~14_combout ),
+	.cout());
+// synopsys translate_off
+defparam \BO_Process|comparando_Preco|LessThan0~14 .lut_mask = 16'hD4D4;
+defparam \BO_Process|comparando_Preco|LessThan0~14 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|habilitar_alteracao_reg~0 (
+// Equation(s):
+// \bc_process|habilitar_alteracao_reg~0_combout  = (\bc_process|present_state~q ) # ((\BO_Process|comparando_Preco|LessThan1~14_combout ) # ((!\BO_Process|comparando_Preco|LessThan0~14_combout ) # (!\rst~input_o )))
+
+	.dataa(\bc_process|present_state~q ),
+	.datab(\BO_Process|comparando_Preco|LessThan1~14_combout ),
+	.datac(\rst~input_o ),
+	.datad(\BO_Process|comparando_Preco|LessThan0~14_combout ),
+	.cin(gnd),
+	.combout(\bc_process|habilitar_alteracao_reg~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|habilitar_alteracao_reg~0 .lut_mask = 16'hEFFF;
+defparam \bc_process|habilitar_alteracao_reg~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Mudanca|saida[0] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Mudanca|saida[0]~8_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|habilitar_alteracao_reg~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Mudanca|saida [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[0] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Mudanca|saida[0] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \vt~0 (
+// Equation(s):
+// \vt~0_combout  = (\rst~input_o  & (\BO_Process|registro_Mudanca|saida [0])) # (!\rst~input_o  & ((\BO_Process|registro_Total|saida [0])))
+
+	.dataa(\BO_Process|registro_Mudanca|saida [0]),
+	.datab(\BO_Process|registro_Total|saida [0]),
+	.datac(gnd),
+	.datad(\rst~input_o ),
+	.cin(gnd),
+	.combout(\vt~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \vt~0 .lut_mask = 16'hAACC;
+defparam \vt~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Mudanca|saida[1]~10 (
+// Equation(s):
+// \BO_Process|registro_Mudanca|saida[1]~10_combout  = (\BO_Process|saida_Acumulador|reg_output|saida [1] & ((\bc_process|preco [1] & (!\BO_Process|registro_Mudanca|saida[0]~9 )) # (!\bc_process|preco [1] & (\BO_Process|registro_Mudanca|saida[0]~9  & VCC)))) 
+// # (!\BO_Process|saida_Acumulador|reg_output|saida [1] & ((\bc_process|preco [1] & ((\BO_Process|registro_Mudanca|saida[0]~9 ) # (GND))) # (!\bc_process|preco [1] & (!\BO_Process|registro_Mudanca|saida[0]~9 ))))
+// \BO_Process|registro_Mudanca|saida[1]~11  = CARRY((\BO_Process|saida_Acumulador|reg_output|saida [1] & (\bc_process|preco [1] & !\BO_Process|registro_Mudanca|saida[0]~9 )) # (!\BO_Process|saida_Acumulador|reg_output|saida [1] & ((\bc_process|preco [1]) # 
+// (!\BO_Process|registro_Mudanca|saida[0]~9 ))))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [1]),
+	.datab(\bc_process|preco [1]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|registro_Mudanca|saida[0]~9 ),
+	.combout(\BO_Process|registro_Mudanca|saida[1]~10_combout ),
+	.cout(\BO_Process|registro_Mudanca|saida[1]~11 ));
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[1]~10 .lut_mask = 16'h694D;
+defparam \BO_Process|registro_Mudanca|saida[1]~10 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Mudanca|saida[1] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Mudanca|saida[1]~10_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|habilitar_alteracao_reg~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Mudanca|saida [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[1] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Mudanca|saida[1] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \vt~1 (
+// Equation(s):
+// \vt~1_combout  = (\rst~input_o  & (\BO_Process|registro_Mudanca|saida [1])) # (!\rst~input_o  & ((\BO_Process|registro_Total|saida [1])))
+
+	.dataa(\BO_Process|registro_Mudanca|saida [1]),
+	.datab(\BO_Process|registro_Total|saida [1]),
+	.datac(gnd),
+	.datad(\rst~input_o ),
+	.cin(gnd),
+	.combout(\vt~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \vt~1 .lut_mask = 16'hAACC;
+defparam \vt~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Mudanca|saida[2]~12 (
+// Equation(s):
+// \BO_Process|registro_Mudanca|saida[2]~12_combout  = ((\BO_Process|saida_Acumulador|reg_output|saida [2] $ (\bc_process|preco [2] $ (\BO_Process|registro_Mudanca|saida[1]~11 )))) # (GND)
+// \BO_Process|registro_Mudanca|saida[2]~13  = CARRY((\BO_Process|saida_Acumulador|reg_output|saida [2] & ((!\BO_Process|registro_Mudanca|saida[1]~11 ) # (!\bc_process|preco [2]))) # (!\BO_Process|saida_Acumulador|reg_output|saida [2] & (!\bc_process|preco 
+// [2] & !\BO_Process|registro_Mudanca|saida[1]~11 )))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [2]),
+	.datab(\bc_process|preco [2]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|registro_Mudanca|saida[1]~11 ),
+	.combout(\BO_Process|registro_Mudanca|saida[2]~12_combout ),
+	.cout(\BO_Process|registro_Mudanca|saida[2]~13 ));
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[2]~12 .lut_mask = 16'h962B;
+defparam \BO_Process|registro_Mudanca|saida[2]~12 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Mudanca|saida[2] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Mudanca|saida[2]~12_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|habilitar_alteracao_reg~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Mudanca|saida [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[2] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Mudanca|saida[2] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \vt~2 (
+// Equation(s):
+// \vt~2_combout  = (\rst~input_o  & (\BO_Process|registro_Mudanca|saida [2])) # (!\rst~input_o  & ((\BO_Process|registro_Total|saida [2])))
+
+	.dataa(\BO_Process|registro_Mudanca|saida [2]),
+	.datab(\BO_Process|registro_Total|saida [2]),
+	.datac(gnd),
+	.datad(\rst~input_o ),
+	.cin(gnd),
+	.combout(\vt~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \vt~2 .lut_mask = 16'hAACC;
+defparam \vt~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Mudanca|saida[3]~14 (
+// Equation(s):
+// \BO_Process|registro_Mudanca|saida[3]~14_combout  = (\BO_Process|saida_Acumulador|reg_output|saida [3] & ((\bc_process|preco [3] & (!\BO_Process|registro_Mudanca|saida[2]~13 )) # (!\bc_process|preco [3] & (\BO_Process|registro_Mudanca|saida[2]~13  & 
+// VCC)))) # (!\BO_Process|saida_Acumulador|reg_output|saida [3] & ((\bc_process|preco [3] & ((\BO_Process|registro_Mudanca|saida[2]~13 ) # (GND))) # (!\bc_process|preco [3] & (!\BO_Process|registro_Mudanca|saida[2]~13 ))))
+// \BO_Process|registro_Mudanca|saida[3]~15  = CARRY((\BO_Process|saida_Acumulador|reg_output|saida [3] & (\bc_process|preco [3] & !\BO_Process|registro_Mudanca|saida[2]~13 )) # (!\BO_Process|saida_Acumulador|reg_output|saida [3] & ((\bc_process|preco [3]) # 
+// (!\BO_Process|registro_Mudanca|saida[2]~13 ))))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [3]),
+	.datab(\bc_process|preco [3]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|registro_Mudanca|saida[2]~13 ),
+	.combout(\BO_Process|registro_Mudanca|saida[3]~14_combout ),
+	.cout(\BO_Process|registro_Mudanca|saida[3]~15 ));
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[3]~14 .lut_mask = 16'h694D;
+defparam \BO_Process|registro_Mudanca|saida[3]~14 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Mudanca|saida[3] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Mudanca|saida[3]~14_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|habilitar_alteracao_reg~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Mudanca|saida [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[3] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Mudanca|saida[3] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \vt~3 (
+// Equation(s):
+// \vt~3_combout  = (\rst~input_o  & (\BO_Process|registro_Mudanca|saida [3])) # (!\rst~input_o  & ((\BO_Process|registro_Total|saida [3])))
+
+	.dataa(\BO_Process|registro_Mudanca|saida [3]),
+	.datab(\BO_Process|registro_Total|saida [3]),
+	.datac(gnd),
+	.datad(\rst~input_o ),
+	.cin(gnd),
+	.combout(\vt~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \vt~3 .lut_mask = 16'hAACC;
+defparam \vt~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Mudanca|saida[4]~16 (
+// Equation(s):
+// \BO_Process|registro_Mudanca|saida[4]~16_combout  = ((\BO_Process|saida_Acumulador|reg_output|saida [4] $ (\bc_process|preco [4] $ (\BO_Process|registro_Mudanca|saida[3]~15 )))) # (GND)
+// \BO_Process|registro_Mudanca|saida[4]~17  = CARRY((\BO_Process|saida_Acumulador|reg_output|saida [4] & ((!\BO_Process|registro_Mudanca|saida[3]~15 ) # (!\bc_process|preco [4]))) # (!\BO_Process|saida_Acumulador|reg_output|saida [4] & (!\bc_process|preco 
+// [4] & !\BO_Process|registro_Mudanca|saida[3]~15 )))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [4]),
+	.datab(\bc_process|preco [4]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|registro_Mudanca|saida[3]~15 ),
+	.combout(\BO_Process|registro_Mudanca|saida[4]~16_combout ),
+	.cout(\BO_Process|registro_Mudanca|saida[4]~17 ));
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[4]~16 .lut_mask = 16'h962B;
+defparam \BO_Process|registro_Mudanca|saida[4]~16 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Mudanca|saida[4] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Mudanca|saida[4]~16_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|habilitar_alteracao_reg~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Mudanca|saida [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[4] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Mudanca|saida[4] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \vt~4 (
+// Equation(s):
+// \vt~4_combout  = (\rst~input_o  & (\BO_Process|registro_Mudanca|saida [4])) # (!\rst~input_o  & ((\BO_Process|registro_Total|saida [4])))
+
+	.dataa(\BO_Process|registro_Mudanca|saida [4]),
+	.datab(\BO_Process|registro_Total|saida [4]),
+	.datac(gnd),
+	.datad(\rst~input_o ),
+	.cin(gnd),
+	.combout(\vt~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \vt~4 .lut_mask = 16'hAACC;
+defparam \vt~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Mudanca|saida[5]~18 (
+// Equation(s):
+// \BO_Process|registro_Mudanca|saida[5]~18_combout  = (\BO_Process|saida_Acumulador|reg_output|saida [5] & ((\bc_process|preco [5] & (!\BO_Process|registro_Mudanca|saida[4]~17 )) # (!\bc_process|preco [5] & (\BO_Process|registro_Mudanca|saida[4]~17  & 
+// VCC)))) # (!\BO_Process|saida_Acumulador|reg_output|saida [5] & ((\bc_process|preco [5] & ((\BO_Process|registro_Mudanca|saida[4]~17 ) # (GND))) # (!\bc_process|preco [5] & (!\BO_Process|registro_Mudanca|saida[4]~17 ))))
+// \BO_Process|registro_Mudanca|saida[5]~19  = CARRY((\BO_Process|saida_Acumulador|reg_output|saida [5] & (\bc_process|preco [5] & !\BO_Process|registro_Mudanca|saida[4]~17 )) # (!\BO_Process|saida_Acumulador|reg_output|saida [5] & ((\bc_process|preco [5]) # 
+// (!\BO_Process|registro_Mudanca|saida[4]~17 ))))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [5]),
+	.datab(\bc_process|preco [5]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|registro_Mudanca|saida[4]~17 ),
+	.combout(\BO_Process|registro_Mudanca|saida[5]~18_combout ),
+	.cout(\BO_Process|registro_Mudanca|saida[5]~19 ));
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[5]~18 .lut_mask = 16'h694D;
+defparam \BO_Process|registro_Mudanca|saida[5]~18 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Mudanca|saida[5] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Mudanca|saida[5]~18_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|habilitar_alteracao_reg~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Mudanca|saida [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[5] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Mudanca|saida[5] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \vt~5 (
+// Equation(s):
+// \vt~5_combout  = (\rst~input_o  & (\BO_Process|registro_Mudanca|saida [5])) # (!\rst~input_o  & ((\BO_Process|registro_Total|saida [5])))
+
+	.dataa(\BO_Process|registro_Mudanca|saida [5]),
+	.datab(\BO_Process|registro_Total|saida [5]),
+	.datac(gnd),
+	.datad(\rst~input_o ),
+	.cin(gnd),
+	.combout(\vt~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \vt~5 .lut_mask = 16'hAACC;
+defparam \vt~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Mudanca|saida[6]~20 (
+// Equation(s):
+// \BO_Process|registro_Mudanca|saida[6]~20_combout  = ((\BO_Process|saida_Acumulador|reg_output|saida [6] $ (\bc_process|preco [6] $ (\BO_Process|registro_Mudanca|saida[5]~19 )))) # (GND)
+// \BO_Process|registro_Mudanca|saida[6]~21  = CARRY((\BO_Process|saida_Acumulador|reg_output|saida [6] & ((!\BO_Process|registro_Mudanca|saida[5]~19 ) # (!\bc_process|preco [6]))) # (!\BO_Process|saida_Acumulador|reg_output|saida [6] & (!\bc_process|preco 
+// [6] & !\BO_Process|registro_Mudanca|saida[5]~19 )))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [6]),
+	.datab(\bc_process|preco [6]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\BO_Process|registro_Mudanca|saida[5]~19 ),
+	.combout(\BO_Process|registro_Mudanca|saida[6]~20_combout ),
+	.cout(\BO_Process|registro_Mudanca|saida[6]~21 ));
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[6]~20 .lut_mask = 16'h962B;
+defparam \BO_Process|registro_Mudanca|saida[6]~20 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Mudanca|saida[6] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Mudanca|saida[6]~20_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|habilitar_alteracao_reg~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Mudanca|saida [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[6] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Mudanca|saida[6] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \vt~6 (
+// Equation(s):
+// \vt~6_combout  = (\rst~input_o  & (\BO_Process|registro_Mudanca|saida [6])) # (!\rst~input_o  & ((\BO_Process|registro_Total|saida [6])))
+
+	.dataa(\BO_Process|registro_Mudanca|saida [6]),
+	.datab(\BO_Process|registro_Total|saida [6]),
+	.datac(gnd),
+	.datad(\rst~input_o ),
+	.cin(gnd),
+	.combout(\vt~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \vt~6 .lut_mask = 16'hAACC;
+defparam \vt~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \BO_Process|registro_Mudanca|saida[7]~22 (
+// Equation(s):
+// \BO_Process|registro_Mudanca|saida[7]~22_combout  = \BO_Process|saida_Acumulador|reg_output|saida [7] $ (\bc_process|preco [7] $ (!\BO_Process|registro_Mudanca|saida[6]~21 ))
+
+	.dataa(\BO_Process|saida_Acumulador|reg_output|saida [7]),
+	.datab(\bc_process|preco [7]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(\BO_Process|registro_Mudanca|saida[6]~21 ),
+	.combout(\BO_Process|registro_Mudanca|saida[7]~22_combout ),
+	.cout());
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[7]~22 .lut_mask = 16'h6969;
+defparam \BO_Process|registro_Mudanca|saida[7]~22 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+dffeas \BO_Process|registro_Mudanca|saida[7] (
+	.clk(\clk~input_o ),
+	.d(\BO_Process|registro_Mudanca|saida[7]~22_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\bc_process|habilitar_alteracao_reg~0_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\BO_Process|registro_Mudanca|saida [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \BO_Process|registro_Mudanca|saida[7] .is_wysiwyg = "true";
+defparam \BO_Process|registro_Mudanca|saida[7] .power_up = "low";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \vt~7 (
+// Equation(s):
+// \vt~7_combout  = (\rst~input_o  & (\BO_Process|registro_Mudanca|saida [7])) # (!\rst~input_o  & ((\BO_Process|registro_Total|saida [7])))
+
+	.dataa(\BO_Process|registro_Mudanca|saida [7]),
+	.datab(\BO_Process|registro_Total|saida [7]),
+	.datac(gnd),
+	.datad(\rst~input_o ),
+	.cin(gnd),
+	.combout(\vt~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \vt~7 .lut_mask = 16'hAACC;
+defparam \vt~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|f2~0 (
+// Equation(s):
+// \bc_process|f2~0_combout  = (\bc_process|present_state~q  & \b2~input_o )
+
+	.dataa(\bc_process|present_state~q ),
+	.datab(\b2~input_o ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\bc_process|f2~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|f2~0 .lut_mask = 16'h8888;
+defparam \bc_process|f2~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_io_ibuf \b1~input (
+	.i(b1),
+	.ibar(gnd),
+	.o(\b1~input_o ));
+// synopsys translate_off
+defparam \b1~input .bus_hold = "false";
+defparam \b1~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|comb~0 (
+// Equation(s):
+// \bc_process|comb~0_combout  = (\bc_process|present_state~q  & ((\b2~input_o ) # (!\b1~input_o )))
+
+	.dataa(\bc_process|present_state~q ),
+	.datab(\b2~input_o ),
+	.datac(gnd),
+	.datad(\b1~input_o ),
+	.cin(gnd),
+	.combout(\bc_process|comb~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|comb~0 .lut_mask = 16'h88AA;
+defparam \bc_process|comb~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|refrigerante_Dispensado[0] (
+// Equation(s):
+// \bc_process|refrigerante_Dispensado [0] = (\bc_process|comb~0_combout  & ((\bc_process|refrigerante_Dispensado [0]) # (\bc_process|f2~0_combout )))
+
+	.dataa(gnd),
+	.datab(\bc_process|refrigerante_Dispensado [0]),
+	.datac(\bc_process|f2~0_combout ),
+	.datad(\bc_process|comb~0_combout ),
+	.cin(gnd),
+	.combout(\bc_process|refrigerante_Dispensado [0]),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|refrigerante_Dispensado[0] .lut_mask = 16'hFC00;
+defparam \bc_process|refrigerante_Dispensado[0] .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|refrigerante_Dispensado[1]~0 (
+// Equation(s):
+// \bc_process|refrigerante_Dispensado[1]~0_combout  = (\b1~input_o ) # ((\b2~input_o ) # (!\bc_process|present_state~q ))
+
+	.dataa(\b1~input_o ),
+	.datab(\b2~input_o ),
+	.datac(gnd),
+	.datad(\bc_process|present_state~q ),
+	.cin(gnd),
+	.combout(\bc_process|refrigerante_Dispensado[1]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|refrigerante_Dispensado[1]~0 .lut_mask = 16'hEEFF;
+defparam \bc_process|refrigerante_Dispensado[1]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|comb~1 (
+// Equation(s):
+// \bc_process|comb~1_combout  = (\b2~input_o ) # (!\bc_process|present_state~q )
+
+	.dataa(\b2~input_o ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\bc_process|present_state~q ),
+	.cin(gnd),
+	.combout(\bc_process|comb~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|comb~1 .lut_mask = 16'hAAFF;
+defparam \bc_process|comb~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|refrigerante_Dispensado[1] (
+// Equation(s):
+// \bc_process|refrigerante_Dispensado [1] = (!\bc_process|comb~1_combout  & ((\bc_process|refrigerante_Dispensado [1]) # (\bc_process|refrigerante_Dispensado[1]~0_combout )))
+
+	.dataa(gnd),
+	.datab(\bc_process|refrigerante_Dispensado [1]),
+	.datac(\bc_process|refrigerante_Dispensado[1]~0_combout ),
+	.datad(\bc_process|comb~1_combout ),
+	.cin(gnd),
+	.combout(\bc_process|refrigerante_Dispensado [1]),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|refrigerante_Dispensado[1] .lut_mask = 16'h00FC;
+defparam \bc_process|refrigerante_Dispensado[1] .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneiv_lcell_comb \bc_process|f1~0 (
+// Equation(s):
+// \bc_process|f1~0_combout  = (\b1~input_o  & \bc_process|present_state~q )
+
+	.dataa(\b1~input_o ),
+	.datab(\bc_process|present_state~q ),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\bc_process|f1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \bc_process|f1~0 .lut_mask = 16'h8888;
+defparam \bc_process|f1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+assign tot[0] = \tot[0]~output_o ;
+
+assign tot[1] = \tot[1]~output_o ;
+
+assign tot[2] = \tot[2]~output_o ;
+
+assign tot[3] = \tot[3]~output_o ;
+
+assign tot[4] = \tot[4]~output_o ;
+
+assign tot[5] = \tot[5]~output_o ;
+
+assign tot[6] = \tot[6]~output_o ;
+
+assign tot[7] = \tot[7]~output_o ;
+
+assign vt[0] = \vt[0]~output_o ;
+
+assign vt[1] = \vt[1]~output_o ;
+
+assign vt[2] = \vt[2]~output_o ;
+
+assign vt[3] = \vt[3]~output_o ;
+
+assign vt[4] = \vt[4]~output_o ;
+
+assign vt[5] = \vt[5]~output_o ;
+
+assign vt[6] = \vt[6]~output_o ;
+
+assign vt[7] = \vt[7]~output_o ;
+
+assign K[0] = \K[0]~output_o ;
+
+assign K[1] = \K[1]~output_o ;
+
+assign f1 = \f1~output_o ;
+
+assign f2 = \f2~output_o ;
+
+endmodule

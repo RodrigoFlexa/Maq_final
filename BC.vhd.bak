@@ -1,0 +1,121 @@
+-- Subsistemas de Controle
+
+-- Este arquivo VHDL descreve o comportamento de um sistema de controle para uma máquina de refrigerantes.
+-- Ele contém lógica para detecção de moeda, seleção de preços e controle de dispensa de refrigerantes 
+-- com base em entradas e botões específicos.
+
+-- Subsistemas de Controle
+
+-- Este arquivo VHDL descreve o comportamento de um sistema de controle para uma máquina de refrigerantes.
+-- Ele contém lógica para detecção de moeda, seleção de preços e controle de dispensa de refrigerantes 
+-- com base em entradas e botões específicos.
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity BC is
+    port (
+        clk : in std_logic;
+        -- Entradas de Controle
+        moeda_Detectada: in std_logic;
+        valor_Centavos: in std_logic_vector (7 downto 0);
+        preco_Refrigerante_0: in std_logic_vector (7 downto 0);
+        preco_Refrigerante_1: in std_logic_vector (7 downto 0);
+        botao_1: in std_logic; 
+        botao_2: in std_logic;
+        reset: in std_logic;
+        
+        -- Condições de entrada
+        comp_maior_entrada : in std_logic;
+        comp_menor_entrada : in std_logic;
+        comp_igual_entrada	: in std_logic;
+        
+        -- Saídas de Controle
+        refrigerante_Dispensado: out std_logic_vector (1 downto 0);
+        
+        -- Sinais de Controle
+        valor_Moeda: out std_logic_vector (7 downto 0);
+        preco: out std_logic_vector (7 downto 0);
+        habilitar_alteracao_reg: out std_logic;
+        registro_rst: out std_logic;
+        reset_sistema: out std_logic
+    );
+end BC;
+
+architecture rtl of BC is
+    type TipoEstado is (estadoEspera, estadoDispensa);
+    Signal estado_atual, proximo_estado: TipoEstado;
+    -- definições de sinal;
+
+begin
+    -- selecione próximo estado
+    -- registro de estado
+
+    -- Processo para detectar moeda e acumular seu valor
+    detectar_moeda: process (clk) begin
+        -- Verifica se uma moeda foi detectada ou não, se sim, então envia
+        -- V para o acumulador, se não, envia 0s
+        if moeda_Detectada = '1' then
+            valor_Moeda <= valor_Centavos;
+        else
+            valor_Moeda <= "00000000";
+        end if;
+    end process detectar_moeda;
+
+    -- Processo para selecionar o preço com base nos botões pressionados
+    escolha_mudanca: process (botao_1, botao_2) begin
+        if (botao_1 = '1') then
+            preco <= preco_Refrigerante_0;
+        elsif (botao_2 = '1') then
+            preco <= preco_Refrigerante_1;
+        else
+            preco <= "00000000"; -- Definindo um valor padrão caso nenhum botão seja pressionado
+        end if;
+    end process escolha_mudanca;
+
+    -- Processo para controlar os estados da máquina de acordo com as entradas e saídas definidas
+    comb_estado: process (estado_atual, comp_maior_entrada, comp_igual_entrada, comp_menor_entrada) begin
+        case estado_atual is
+            when estadoEspera =>
+                registro_rst <= '0';
+                habilitar_alteracao_reg <= '1';
+                -- Se ainda estamos esperando, a máquina não deve dispensar
+                -- refrigerante, portanto, o valor deve permanecer '00'
+                refrigerante_Dispensado <= "00";
+                -- Temos mais dinheiro do que o preço do refrigerante, vá para o
+                -- estado de Dispensa
+                if (comp_menor_entrada = '1') then
+                    proximo_estado <= estadoEspera;
+                else
+                    if (comp_maior_entrada = '1') then
+                        habilitar_alteracao_reg <= '0';
+                    end if;
+                    proximo_estado <= estadoDispensa;
+                end if;
+
+            when estadoDispensa =>
+                registro_rst <='1';
+                if (botao_1 = '1') then
+                    refrigerante_Dispensado <= "10";
+                elsif (botao_2 = '1') then
+                    refrigerante_Dispensado <= "01";
+                end if;
+                habilitar_alteracao_reg <= '1';
+                proximo_estado <= estadoEspera;
+        end case;
+
+        -- Verificação de reset do sistema
+        if (reset = '0') then
+            reset_sistema <= '1';
+            registro_rst <= '1';
+            habilitar_alteracao_reg <= '1';
+        end if;
+    end process comb_estado;
+
+    -- Processo para controlar a transição de estados com base no clock
+    estado_com_clock: process (clk) begin
+        if (clk'event and clk='1') then
+            estado_atual <= proximo_estado;
+        end if;
+    end process estado_com_clock;
+end rtl;

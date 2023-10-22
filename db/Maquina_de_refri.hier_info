@@ -1,0 +1,1991 @@
+|Maquina_de_refri
+m => BC:bc_process.moeda_Detectada
+b1 => BC:bc_process.botao_1
+b2 => BC:bc_process.botao_2
+rst => BC:bc_process.reset
+rst => vt.OUTPUTSELECT
+rst => vt.OUTPUTSELECT
+rst => vt.OUTPUTSELECT
+rst => vt.OUTPUTSELECT
+rst => vt.OUTPUTSELECT
+rst => vt.OUTPUTSELECT
+rst => vt.OUTPUTSELECT
+rst => vt.OUTPUTSELECT
+rst => tot.OUTPUTSELECT
+rst => tot.OUTPUTSELECT
+rst => tot.OUTPUTSELECT
+rst => tot.OUTPUTSELECT
+rst => tot.OUTPUTSELECT
+rst => tot.OUTPUTSELECT
+rst => tot.OUTPUTSELECT
+rst => tot.OUTPUTSELECT
+clk => BC:bc_process.clk
+clk => BO:BO_Process.clk
+V[0] => BC:bc_process.valor_centavos[0]
+V[1] => BC:bc_process.valor_centavos[1]
+V[2] => BC:bc_process.valor_centavos[2]
+V[3] => BC:bc_process.valor_centavos[3]
+V[4] => BC:bc_process.valor_centavos[4]
+V[5] => BC:bc_process.valor_centavos[5]
+V[6] => BC:bc_process.valor_centavos[6]
+V[7] => BC:bc_process.valor_centavos[7]
+r1[0] => BC:bc_process.preco_Refrigerante_0[0]
+r1[1] => BC:bc_process.preco_Refrigerante_0[1]
+r1[2] => BC:bc_process.preco_Refrigerante_0[2]
+r1[3] => BC:bc_process.preco_Refrigerante_0[3]
+r1[4] => BC:bc_process.preco_Refrigerante_0[4]
+r1[5] => BC:bc_process.preco_Refrigerante_0[5]
+r1[6] => BC:bc_process.preco_Refrigerante_0[6]
+r1[7] => BC:bc_process.preco_Refrigerante_0[7]
+r2[0] => BC:bc_process.preco_Refrigerante_1[0]
+r2[1] => BC:bc_process.preco_Refrigerante_1[1]
+r2[2] => BC:bc_process.preco_Refrigerante_1[2]
+r2[3] => BC:bc_process.preco_Refrigerante_1[3]
+r2[4] => BC:bc_process.preco_Refrigerante_1[4]
+r2[5] => BC:bc_process.preco_Refrigerante_1[5]
+r2[6] => BC:bc_process.preco_Refrigerante_1[6]
+r2[7] => BC:bc_process.preco_Refrigerante_1[7]
+tot[0] <= tot.DB_MAX_OUTPUT_PORT_TYPE
+tot[1] <= tot.DB_MAX_OUTPUT_PORT_TYPE
+tot[2] <= tot.DB_MAX_OUTPUT_PORT_TYPE
+tot[3] <= tot.DB_MAX_OUTPUT_PORT_TYPE
+tot[4] <= tot.DB_MAX_OUTPUT_PORT_TYPE
+tot[5] <= tot.DB_MAX_OUTPUT_PORT_TYPE
+tot[6] <= tot.DB_MAX_OUTPUT_PORT_TYPE
+tot[7] <= tot.DB_MAX_OUTPUT_PORT_TYPE
+vt[0] <= vt.DB_MAX_OUTPUT_PORT_TYPE
+vt[1] <= vt.DB_MAX_OUTPUT_PORT_TYPE
+vt[2] <= vt.DB_MAX_OUTPUT_PORT_TYPE
+vt[3] <= vt.DB_MAX_OUTPUT_PORT_TYPE
+vt[4] <= vt.DB_MAX_OUTPUT_PORT_TYPE
+vt[5] <= vt.DB_MAX_OUTPUT_PORT_TYPE
+vt[6] <= vt.DB_MAX_OUTPUT_PORT_TYPE
+vt[7] <= vt.DB_MAX_OUTPUT_PORT_TYPE
+K[0] <= BC:bc_process.refrigerante_Dispensado[0]
+K[1] <= BC:bc_process.refrigerante_Dispensado[1]
+f1 <= BC:bc_process.f1
+f2 <= BC:bc_process.f2
+
+
+|Maquina_de_refri|BC:bc_process
+clk => present_state.CLK
+f1 <= f1.DB_MAX_OUTPUT_PORT_TYPE
+f2 <= f2.DB_MAX_OUTPUT_PORT_TYPE
+moeda_Detectada => valor_Moeda.OUTPUTSELECT
+moeda_Detectada => valor_Moeda.OUTPUTSELECT
+moeda_Detectada => valor_Moeda.OUTPUTSELECT
+moeda_Detectada => valor_Moeda.OUTPUTSELECT
+moeda_Detectada => valor_Moeda.OUTPUTSELECT
+moeda_Detectada => valor_Moeda.OUTPUTSELECT
+moeda_Detectada => valor_Moeda.OUTPUTSELECT
+moeda_Detectada => valor_Moeda.OUTPUTSELECT
+valor_Centavos[0] => valor_Moeda.DATAB
+valor_Centavos[1] => valor_Moeda.DATAB
+valor_Centavos[2] => valor_Moeda.DATAB
+valor_Centavos[3] => valor_Moeda.DATAB
+valor_Centavos[4] => valor_Moeda.DATAB
+valor_Centavos[5] => valor_Moeda.DATAB
+valor_Centavos[6] => valor_Moeda.DATAB
+valor_Centavos[7] => valor_Moeda.DATAB
+preco_Refrigerante_0[0] => preco[0].DATAA
+preco_Refrigerante_0[1] => preco[1].DATAA
+preco_Refrigerante_0[2] => preco[2].DATAA
+preco_Refrigerante_0[3] => preco[3].DATAA
+preco_Refrigerante_0[4] => preco[4].DATAA
+preco_Refrigerante_0[5] => preco[5].DATAA
+preco_Refrigerante_0[6] => preco[6].DATAA
+preco_Refrigerante_0[7] => preco[7].DATAA
+preco_Refrigerante_1[0] => preco[0].DATAB
+preco_Refrigerante_1[1] => preco[1].DATAB
+preco_Refrigerante_1[2] => preco[2].DATAB
+preco_Refrigerante_1[3] => preco[3].DATAB
+preco_Refrigerante_1[4] => preco[4].DATAB
+preco_Refrigerante_1[5] => preco[5].DATAB
+preco_Refrigerante_1[6] => preco[6].DATAB
+preco_Refrigerante_1[7] => preco[7].DATAB
+botao_1 => f1.DATAA
+botao_1 => refrigerante_Dispensado[1].IN0
+botao_2 => preco[0].OUTPUTSELECT
+botao_2 => preco[1].OUTPUTSELECT
+botao_2 => preco[2].OUTPUTSELECT
+botao_2 => preco[3].OUTPUTSELECT
+botao_2 => preco[4].OUTPUTSELECT
+botao_2 => preco[5].OUTPUTSELECT
+botao_2 => preco[6].OUTPUTSELECT
+botao_2 => preco[7].OUTPUTSELECT
+botao_2 => f2.DATAA
+botao_2 => refrigerante_Dispensado[1].IN1
+botao_2 => refrigerante_Dispensado[1].DATAA
+reset => registro_rst.OUTPUTSELECT
+reset => habilitar_alteracao_reg.OUTPUTSELECT
+comp_maior_entrada => habilitar_alteracao_reg.DATAA
+comp_menor_entrada => habilitar_alteracao_reg.OUTPUTSELECT
+comp_menor_entrada => next_state.DATAB
+comp_igual_entrada => ~NO_FANOUT~
+refrigerante_Dispensado[0] <= refrigerante_Dispensado[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+refrigerante_Dispensado[1] <= refrigerante_Dispensado[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+valor_Moeda[0] <= valor_Moeda.DB_MAX_OUTPUT_PORT_TYPE
+valor_Moeda[1] <= valor_Moeda.DB_MAX_OUTPUT_PORT_TYPE
+valor_Moeda[2] <= valor_Moeda.DB_MAX_OUTPUT_PORT_TYPE
+valor_Moeda[3] <= valor_Moeda.DB_MAX_OUTPUT_PORT_TYPE
+valor_Moeda[4] <= valor_Moeda.DB_MAX_OUTPUT_PORT_TYPE
+valor_Moeda[5] <= valor_Moeda.DB_MAX_OUTPUT_PORT_TYPE
+valor_Moeda[6] <= valor_Moeda.DB_MAX_OUTPUT_PORT_TYPE
+valor_Moeda[7] <= valor_Moeda.DB_MAX_OUTPUT_PORT_TYPE
+preco[0] <= preco[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+preco[1] <= preco[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+preco[2] <= preco[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+preco[3] <= preco[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+preco[4] <= preco[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+preco[5] <= preco[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+preco[6] <= preco[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+preco[7] <= preco[7]$latch.DB_MAX_OUTPUT_PORT_TYPE
+habilitar_alteracao_reg <= habilitar_alteracao_reg.DB_MAX_OUTPUT_PORT_TYPE
+registro_rst <= registro_rst.DB_MAX_OUTPUT_PORT_TYPE
+reset_sistema <= <VCC>
+
+
+|Maquina_de_refri|BO:BO_Process
+clk => acumulador_8_bits:saida_Acumulador.clk
+clk => registrador_8_bits:registro_Total.clk
+clk => registrador_8_bits:registro_Mudanca.clk
+reset => ~NO_FANOUT~
+valor_Refrigerante[0] => acumulador_8_bits:saida_Acumulador.dados_entrada[0]
+valor_Refrigerante[1] => acumulador_8_bits:saida_Acumulador.dados_entrada[1]
+valor_Refrigerante[2] => acumulador_8_bits:saida_Acumulador.dados_entrada[2]
+valor_Refrigerante[3] => acumulador_8_bits:saida_Acumulador.dados_entrada[3]
+valor_Refrigerante[4] => acumulador_8_bits:saida_Acumulador.dados_entrada[4]
+valor_Refrigerante[5] => acumulador_8_bits:saida_Acumulador.dados_entrada[5]
+valor_Refrigerante[6] => acumulador_8_bits:saida_Acumulador.dados_entrada[6]
+valor_Refrigerante[7] => acumulador_8_bits:saida_Acumulador.dados_entrada[7]
+custo[0] => complemento_de_2:valor_Complemento.Entrada[0]
+custo[0] => comparador_8_bits:comparando_Preco.entrada2[0]
+custo[1] => complemento_de_2:valor_Complemento.Entrada[1]
+custo[1] => comparador_8_bits:comparando_Preco.entrada2[1]
+custo[2] => complemento_de_2:valor_Complemento.Entrada[2]
+custo[2] => comparador_8_bits:comparando_Preco.entrada2[2]
+custo[3] => complemento_de_2:valor_Complemento.Entrada[3]
+custo[3] => comparador_8_bits:comparando_Preco.entrada2[3]
+custo[4] => complemento_de_2:valor_Complemento.Entrada[4]
+custo[4] => comparador_8_bits:comparando_Preco.entrada2[4]
+custo[5] => complemento_de_2:valor_Complemento.Entrada[5]
+custo[5] => comparador_8_bits:comparando_Preco.entrada2[5]
+custo[6] => complemento_de_2:valor_Complemento.Entrada[6]
+custo[6] => comparador_8_bits:comparando_Preco.entrada2[6]
+custo[7] => complemento_de_2:valor_Complemento.Entrada[7]
+custo[7] => comparador_8_bits:comparando_Preco.entrada2[7]
+habilitar_Alteracao => registrador_8_bits:registro_Mudanca.reset_sincrono
+reset_Acumulador => acumulador_8_bits:saida_Acumulador.rst
+reset_Acumulador => registrador_8_bits:registro_Total.reset_sincrono
+comp_Maior <= comparador_8_bits:comparando_Preco.maior
+comp_Menor <= comparador_8_bits:comparando_Preco.menor
+comp_Igual <= comparador_8_bits:comparando_Preco.igualdade
+total_Final[0] <= registrador_8_bits:registro_Total.saida[0]
+total_Final[1] <= registrador_8_bits:registro_Total.saida[1]
+total_Final[2] <= registrador_8_bits:registro_Total.saida[2]
+total_Final[3] <= registrador_8_bits:registro_Total.saida[3]
+total_Final[4] <= registrador_8_bits:registro_Total.saida[4]
+total_Final[5] <= registrador_8_bits:registro_Total.saida[5]
+total_Final[6] <= registrador_8_bits:registro_Total.saida[6]
+total_Final[7] <= registrador_8_bits:registro_Total.saida[7]
+troco[0] <= registrador_8_bits:registro_Mudanca.saida[0]
+troco[1] <= registrador_8_bits:registro_Mudanca.saida[1]
+troco[2] <= registrador_8_bits:registro_Mudanca.saida[2]
+troco[3] <= registrador_8_bits:registro_Mudanca.saida[3]
+troco[4] <= registrador_8_bits:registro_Mudanca.saida[4]
+troco[5] <= registrador_8_bits:registro_Mudanca.saida[5]
+troco[6] <= registrador_8_bits:registro_Mudanca.saida[6]
+troco[7] <= registrador_8_bits:registro_Mudanca.saida[7]
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador
+dados_entrada[0] => implementacao_somador_8_bits:adder_output.A[0]
+dados_entrada[1] => implementacao_somador_8_bits:adder_output.A[1]
+dados_entrada[2] => implementacao_somador_8_bits:adder_output.A[2]
+dados_entrada[3] => implementacao_somador_8_bits:adder_output.A[3]
+dados_entrada[4] => implementacao_somador_8_bits:adder_output.A[4]
+dados_entrada[5] => implementacao_somador_8_bits:adder_output.A[5]
+dados_entrada[6] => implementacao_somador_8_bits:adder_output.A[6]
+dados_entrada[7] => implementacao_somador_8_bits:adder_output.A[7]
+clk => registrador_8_bits:reg_output.clk
+rst => registrador_8_bits:reg_output.reset_sincrono
+dados_saida[0] <= registrador_8_bits:reg_output.saida[0]
+dados_saida[1] <= registrador_8_bits:reg_output.saida[1]
+dados_saida[2] <= registrador_8_bits:reg_output.saida[2]
+dados_saida[3] <= registrador_8_bits:reg_output.saida[3]
+dados_saida[4] <= registrador_8_bits:reg_output.saida[4]
+dados_saida[5] <= registrador_8_bits:reg_output.saida[5]
+dados_saida[6] <= registrador_8_bits:reg_output.saida[6]
+dados_saida[7] <= registrador_8_bits:reg_output.saida[7]
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output
+A[0] => somador_um_bit:bit_1.A
+A[1] => somador_um_bit:bit_2.A
+A[2] => somador_um_bit:bit_3.A
+A[3] => somador_um_bit:bit_4.A
+A[4] => somador_um_bit:bit_5.A
+A[5] => somador_um_bit:bit_6.A
+A[6] => somador_um_bit:bit_7.A
+A[7] => somador_um_bit:bit_8.A
+B[0] => somador_um_bit:bit_1.B
+B[1] => somador_um_bit:bit_2.B
+B[2] => somador_um_bit:bit_3.B
+B[3] => somador_um_bit:bit_4.B
+B[4] => somador_um_bit:bit_5.B
+B[5] => somador_um_bit:bit_6.B
+B[6] => somador_um_bit:bit_7.B
+B[7] => somador_um_bit:bit_8.B
+Soma[0] <= somador_um_bit:bit_1.Soma
+Soma[1] <= somador_um_bit:bit_2.Soma
+Soma[2] <= somador_um_bit:bit_3.Soma
+Soma[3] <= somador_um_bit:bit_4.Soma
+Soma[4] <= somador_um_bit:bit_5.Soma
+Soma[5] <= somador_um_bit:bit_6.Soma
+Soma[6] <= somador_um_bit:bit_7.Soma
+Soma[7] <= somador_um_bit:bit_8.Soma
+Vai_um <= somador_um_bit:bit_8.Vai_um
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_1
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_1|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_1|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_1|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_1|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_1|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_1|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_1|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_1|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_1|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_1|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_1|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_1|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_2
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_2|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_2|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_2|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_2|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_2|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_2|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_2|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_2|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_2|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_2|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_2|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_2|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_3
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_3|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_3|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_3|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_3|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_3|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_3|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_3|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_3|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_3|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_3|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_3|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_3|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_4
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_4|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_4|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_4|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_4|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_4|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_4|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_4|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_4|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_4|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_4|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_4|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_4|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_5
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_5|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_5|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_5|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_5|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_5|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_5|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_5|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_5|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_5|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_5|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_5|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_5|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_6
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_6|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_6|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_6|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_6|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_6|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_6|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_6|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_6|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_6|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_6|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_6|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_6|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_7
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_7|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_7|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_7|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_7|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_7|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_7|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_7|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_7|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_7|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_7|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_7|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_7|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_8
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_8|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_8|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_8|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_8|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_8|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_8|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_8|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_8|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_8|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_8|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_8|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|implementacao_somador_8_bits:adder_output|somador_um_bit:bit_8|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|acumulador_8_bits:saida_Acumulador|registrador_8_bits:reg_output
+dados[0] => saida.DATAA
+dados[1] => saida.DATAA
+dados[2] => saida.DATAA
+dados[3] => saida.DATAA
+dados[4] => saida.DATAA
+dados[5] => saida.DATAA
+dados[6] => saida.DATAA
+dados[7] => saida.DATAA
+clk => saida[0]~reg0.CLK
+clk => saida[1]~reg0.CLK
+clk => saida[2]~reg0.CLK
+clk => saida[3]~reg0.CLK
+clk => saida[4]~reg0.CLK
+clk => saida[5]~reg0.CLK
+clk => saida[6]~reg0.CLK
+clk => saida[7]~reg0.CLK
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+saida[0] <= saida[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[1] <= saida[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[2] <= saida[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[3] <= saida[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[4] <= saida[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[5] <= saida[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[6] <= saida[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[7] <= saida[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|registrador_8_bits:registro_Total
+dados[0] => saida.DATAA
+dados[1] => saida.DATAA
+dados[2] => saida.DATAA
+dados[3] => saida.DATAA
+dados[4] => saida.DATAA
+dados[5] => saida.DATAA
+dados[6] => saida.DATAA
+dados[7] => saida.DATAA
+clk => saida[0]~reg0.CLK
+clk => saida[1]~reg0.CLK
+clk => saida[2]~reg0.CLK
+clk => saida[3]~reg0.CLK
+clk => saida[4]~reg0.CLK
+clk => saida[5]~reg0.CLK
+clk => saida[6]~reg0.CLK
+clk => saida[7]~reg0.CLK
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+saida[0] <= saida[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[1] <= saida[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[2] <= saida[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[3] <= saida[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[4] <= saida[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[5] <= saida[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[6] <= saida[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[7] <= saida[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|complemento_de_2:valor_Complemento
+Entrada[0] => Add0.IN16
+Entrada[1] => Add0.IN15
+Entrada[2] => Add0.IN14
+Entrada[3] => Add0.IN13
+Entrada[4] => Add0.IN12
+Entrada[5] => Add0.IN11
+Entrada[6] => Add0.IN10
+Entrada[7] => Add0.IN9
+Saida[0] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Saida[1] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Saida[2] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Saida[3] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Saida[4] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Saida[5] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Saida[6] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+Saida[7] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma
+A[0] => somador_um_bit:bit_1.A
+A[1] => somador_um_bit:bit_2.A
+A[2] => somador_um_bit:bit_3.A
+A[3] => somador_um_bit:bit_4.A
+A[4] => somador_um_bit:bit_5.A
+A[5] => somador_um_bit:bit_6.A
+A[6] => somador_um_bit:bit_7.A
+A[7] => somador_um_bit:bit_8.A
+B[0] => somador_um_bit:bit_1.B
+B[1] => somador_um_bit:bit_2.B
+B[2] => somador_um_bit:bit_3.B
+B[3] => somador_um_bit:bit_4.B
+B[4] => somador_um_bit:bit_5.B
+B[5] => somador_um_bit:bit_6.B
+B[6] => somador_um_bit:bit_7.B
+B[7] => somador_um_bit:bit_8.B
+Soma[0] <= somador_um_bit:bit_1.Soma
+Soma[1] <= somador_um_bit:bit_2.Soma
+Soma[2] <= somador_um_bit:bit_3.Soma
+Soma[3] <= somador_um_bit:bit_4.Soma
+Soma[4] <= somador_um_bit:bit_5.Soma
+Soma[5] <= somador_um_bit:bit_6.Soma
+Soma[6] <= somador_um_bit:bit_7.Soma
+Soma[7] <= somador_um_bit:bit_8.Soma
+Vai_um <= somador_um_bit:bit_8.Vai_um
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_1
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_1|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_1|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_1|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_1|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_1|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_1|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_1|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_1|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_1|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_1|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_1|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_1|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_2
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_2|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_2|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_2|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_2|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_2|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_2|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_2|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_2|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_2|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_2|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_2|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_2|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_3
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_3|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_3|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_3|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_3|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_3|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_3|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_3|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_3|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_3|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_3|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_3|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_3|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_4
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_4|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_4|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_4|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_4|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_4|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_4|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_4|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_4|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_4|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_4|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_4|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_4|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_5
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_5|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_5|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_5|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_5|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_5|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_5|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_5|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_5|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_5|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_5|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_5|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_5|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_6
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_6|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_6|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_6|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_6|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_6|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_6|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_6|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_6|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_6|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_6|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_6|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_6|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_7
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_7|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_7|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_7|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_7|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_7|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_7|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_7|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_7|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_7|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_7|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_7|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_7|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_8
+A => not_gate:G1.I
+A => and_gate_3_input:G6.I1
+A => and_gate_3_input:G7.I1
+A => and_gate:G10.I1
+A => and_gate:G11.I1
+B => not_gate:G2.I
+B => and_gate_3_input:G5.I2
+B => and_gate_3_input:G7.I2
+B => and_gate:G9.I1
+B => and_gate:G11.I2
+C => not_gate:G3.I
+C => and_gate_3_input:G4.I3
+C => and_gate_3_input:G7.I3
+C => and_gate:G9.I2
+C => and_gate:G10.I2
+Soma <= or_gate_4_inputs:G8.O
+Vai_um <= or_gate_3_inputs:G12.O
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_8|not_gate:G1
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_8|not_gate:G2
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_8|not_gate:G3
+I => O.DATAIN
+O <= I.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_8|and_gate_3_input:G4
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_8|and_gate_3_input:G5
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_8|and_gate_3_input:G6
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_8|and_gate_3_input:G7
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_8|or_gate_4_inputs:G8
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+I4 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_8|and_gate:G9
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_8|and_gate:G10
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_8|and_gate:G11
+I1 => O.IN0
+I2 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|implementacao_somador_8_bits:saida_Soma|somador_um_bit:bit_8|or_gate_3_inputs:G12
+I1 => O.IN0
+I2 => O.IN1
+I3 => O.IN1
+O <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|registrador_8_bits:registro_Mudanca
+dados[0] => saida.DATAA
+dados[1] => saida.DATAA
+dados[2] => saida.DATAA
+dados[3] => saida.DATAA
+dados[4] => saida.DATAA
+dados[5] => saida.DATAA
+dados[6] => saida.DATAA
+dados[7] => saida.DATAA
+clk => saida[0]~reg0.CLK
+clk => saida[1]~reg0.CLK
+clk => saida[2]~reg0.CLK
+clk => saida[3]~reg0.CLK
+clk => saida[4]~reg0.CLK
+clk => saida[5]~reg0.CLK
+clk => saida[6]~reg0.CLK
+clk => saida[7]~reg0.CLK
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+reset_sincrono => saida.OUTPUTSELECT
+saida[0] <= saida[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[1] <= saida[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[2] <= saida[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[3] <= saida[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[4] <= saida[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[5] <= saida[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[6] <= saida[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+saida[7] <= saida[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Maquina_de_refri|BO:BO_Process|comparador_8_bits:comparando_Preco
+entrada1[0] => Equal0.IN7
+entrada1[0] => LessThan0.IN8
+entrada1[0] => LessThan1.IN8
+entrada1[1] => Equal0.IN6
+entrada1[1] => LessThan0.IN7
+entrada1[1] => LessThan1.IN7
+entrada1[2] => Equal0.IN5
+entrada1[2] => LessThan0.IN6
+entrada1[2] => LessThan1.IN6
+entrada1[3] => Equal0.IN4
+entrada1[3] => LessThan0.IN5
+entrada1[3] => LessThan1.IN5
+entrada1[4] => Equal0.IN3
+entrada1[4] => LessThan0.IN4
+entrada1[4] => LessThan1.IN4
+entrada1[5] => Equal0.IN2
+entrada1[5] => LessThan0.IN3
+entrada1[5] => LessThan1.IN3
+entrada1[6] => Equal0.IN1
+entrada1[6] => LessThan0.IN2
+entrada1[6] => LessThan1.IN2
+entrada1[7] => Equal0.IN0
+entrada1[7] => LessThan0.IN1
+entrada1[7] => LessThan1.IN1
+entrada2[0] => Equal0.IN15
+entrada2[0] => LessThan0.IN16
+entrada2[0] => LessThan1.IN16
+entrada2[1] => Equal0.IN14
+entrada2[1] => LessThan0.IN15
+entrada2[1] => LessThan1.IN15
+entrada2[2] => Equal0.IN13
+entrada2[2] => LessThan0.IN14
+entrada2[2] => LessThan1.IN14
+entrada2[3] => Equal0.IN12
+entrada2[3] => LessThan0.IN13
+entrada2[3] => LessThan1.IN13
+entrada2[4] => Equal0.IN11
+entrada2[4] => LessThan0.IN12
+entrada2[4] => LessThan1.IN12
+entrada2[5] => Equal0.IN10
+entrada2[5] => LessThan0.IN11
+entrada2[5] => LessThan1.IN11
+entrada2[6] => Equal0.IN9
+entrada2[6] => LessThan0.IN10
+entrada2[6] => LessThan1.IN10
+entrada2[7] => Equal0.IN8
+entrada2[7] => LessThan0.IN9
+entrada2[7] => LessThan1.IN9
+igualdade <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+maior <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+menor <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+
+

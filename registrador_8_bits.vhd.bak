@@ -1,0 +1,33 @@
+-- Descrição: Esta entidade representa um registrador de 8 bits com um sinal de clock e um sinal de reset síncrono. 
+-- O registrador armazena um valor de 8 bits (dados) quando o sinal de clock tem uma borda de subida e não há reset. 
+-- Se o sinal de reset for '1', o registrador será redefinido para 00000000.
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity registrador_8_bits is
+    port (
+        dados: in bit_vector (7 downto 0); -- Entrada de dados de 8 bits
+        clk, reset_sincrono: in bit; -- Sinal de clock e reset síncrono
+        saida: out bit_vector (7 downto 0) -- Saída de dados de 8 bits
+    );
+end registrador_8_bits;
+
+architecture comportamento of registrador_8_bits is
+begin
+    process (clk)
+    begin
+        if clk'event and clk = '1' then -- Verifica se o sinal de clock é uma borda de subida
+            if reset_sincrono = '1' then -- Verifica se o sinal de reset é '1'
+                saida <= "00000000"; -- Resseta a saída para 00000000 se o reset for '1'
+            else
+                saida <= dados; -- Atribui o valor de entrada 'dados' à saída 'saida' se não houver reset
+            end if;
+        end if;
+    end process;
+end comportamento;
+
+-- d foi renomeada para dados.
+--clk foi mantida como está, pois é uma convenção amplamente utilizada para representar o sinal de clock.
+--synch_reset foi renomeada para reset_sincrono.
+--q foi renomeada para saida.
